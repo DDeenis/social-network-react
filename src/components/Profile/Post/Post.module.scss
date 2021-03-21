@@ -1,0 +1,45 @@
+.postBlock {
+    width: 80%;
+    margin: 20px;
+    margin-left: 0;
+    height: 15vh;
+    display: flex;
+    flex-flow: row wrap;
+    // justify-content: space-between;
+    justify-content: unsafe;
+}
+
+.avatar {
+    background-color: #FFC82C;
+    border-radius: 50%;
+    width: 58px;
+    height: 58px;
+    margin: 10px;
+}
+
+.postText {
+    color: #47525E;
+    font-size: 20px;
+}
+
+.likesBlock {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+    align-items: flex-end;
+    justify-self: flex-end;
+    margin-left: auto;
+}
+
+.likesBlock span {
+    margin: 5px 15px;
+}
+
+.likes {
+    color: palevioletred;
+    cursor: pointer;
+}
+
+.views {
+    color: blue;
+}
