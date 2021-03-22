@@ -1,0 +1,13 @@
+.dialogContacts {
+  width: 100%;
+  -webkit-padding-start: 30px;
+          padding-inline-start: 30px;
+}
+
+.title {
+  color: #47525E;
+  font-size: 26px;
+  line-height: 33px;
+  text-align: left;
+}
+/*# sourceMappingURL=DialogContacts.module.css.map */

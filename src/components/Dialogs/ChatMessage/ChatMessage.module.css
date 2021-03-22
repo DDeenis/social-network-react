@@ -1,0 +1,83 @@
+.message {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.userInfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.userAvatar {
+  background-color: #E5E9F2;
+  border-radius: 100%;
+  width: 70px;
+  height: 70px;
+  background-image: url("../../../assets/images/smile.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 50%;
+  cursor: pointer;
+}
+
+.userName {
+  color: #8190A5;
+  font-size: 18px;
+  line-height: 36px;
+  text-align: center;
+  margin: 0;
+  cursor: pointer;
+}
+
+.messageBlock {
+  border: 2px solid #C0CCDA;
+  border-radius: 10px;
+  width: 278px;
+  height: 89px;
+  margin: 50px;
+  margin-top: 0;
+}
+
+.messageBlock {
+  padding: 15px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.messageContent {
+  color: #8190A5;
+  font-size: 18px;
+  line-height: 30px;
+}
+/*# sourceMappingURL=ChatMessage.module.css.map */

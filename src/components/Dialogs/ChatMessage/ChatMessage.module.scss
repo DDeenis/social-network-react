@@ -1,0 +1,58 @@
+.message {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.userInfo {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.userAvatar {
+    background-color: #E5E9F2;
+    border-radius: 100%;
+    width: 70px;
+    height: 70px;
+    background-image: url('../../../assets/images/smile.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 50%;
+    cursor: pointer;
+}
+
+.userName {
+    color: #8190A5;
+    font-size: 18px;
+    line-height: 36px;
+    text-align: center;
+    margin: 0;
+    cursor: pointer;
+}
+
+.messageBlock {
+    border: 2px solid #C0CCDA;
+    border-radius: 10px;
+    width: 278px;
+    height: 89px;
+    margin: 50px;
+    margin-top: 0;
+}
+
+.messageBlock {
+    padding: 15px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.messageContent {
+    color: #8190A5;
+    font-size: 18px;
+    line-height: 30px;
+    // text-align: center;
+}
