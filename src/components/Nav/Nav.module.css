@@ -33,6 +33,16 @@ nav {
   color: goldenrod;
 }
 
+.navItem a:active,
+.navItem a a:active {
+  color: gold;
+}
+
+.navItem .activeLink,
+.navItem a .activeLink {
+  color: #40394a;
+}
+
 .settings {
   margin: 20px 0;
 }
