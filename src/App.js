@@ -13,8 +13,10 @@ function App() {
         <aside>
           <Nav />
         </aside>
-        {/* <Profile /> */}
-        <Dialogs />
+        <div className="app-wapper-content">
+          {/* <Profile /> */}
+          <Dialogs />
+        </div>
       </main>
     </div>
   );

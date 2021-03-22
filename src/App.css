@@ -9,3 +9,8 @@ main {
   display: flex;
   flex-flow: row wrap;
 }
+
+.app-wapper-content {
+  margin: 10px;
+  width: 80%;
+}

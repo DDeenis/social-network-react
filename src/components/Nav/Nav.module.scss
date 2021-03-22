@@ -17,6 +17,15 @@ nav {
     font-size: 34px;
     line-height: 44px;
     text-decoration: none;
+
+    a {
+        transition: color .3s ease;
+
+        &:hover {
+            transition: color .3s ease;
+            color: goldenrod;
+        }
+    }
 }
 
 .settings {

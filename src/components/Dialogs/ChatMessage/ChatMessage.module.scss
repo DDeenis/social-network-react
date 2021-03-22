@@ -10,6 +10,12 @@
     flex-flow: column wrap;
     justify-content: center;
     align-items: center;
+    // transition: transform .3s ease;
+
+    // &:hover {
+    //     transform: scale(1.1);
+    //     transition: transform .3s ease;
+    // }
 }
 
 .userAvatar {
@@ -40,9 +46,6 @@
     height: 89px;
     margin: 50px;
     margin-top: 0;
-}
-
-.messageBlock {
     padding: 15px;
     box-sizing: border-box;
     display: flex;

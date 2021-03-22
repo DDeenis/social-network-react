@@ -20,6 +20,19 @@ nav {
   text-decoration: none;
 }
 
+.navItem a,
+.navItem a a {
+  -webkit-transition: color .3s ease;
+  transition: color .3s ease;
+}
+
+.navItem a:hover,
+.navItem a a:hover {
+  -webkit-transition: color .3s ease;
+  transition: color .3s ease;
+  color: goldenrod;
+}
+
 .settings {
   margin: 20px 0;
 }
