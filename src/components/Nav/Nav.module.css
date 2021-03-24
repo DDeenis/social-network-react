@@ -1,9 +1,23 @@
 nav {
   width: 10vw;
   height: 70vh;
-  background: #13CE66;
-  padding: 10px;
+  background: #222831;
   margin: 10px 15px 10px 0;
+  border: 0px solid;
+  border-radius: 12px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .navItems {
@@ -15,7 +29,7 @@ nav {
 .navItem,
 .navItem a {
   color: #fff;
-  font-size: 34px;
+  font-size: 24px;
   line-height: 44px;
   text-decoration: none;
 }
@@ -26,21 +40,48 @@ nav {
   transition: color .3s ease;
 }
 
-.navItem a:hover,
-.navItem a a:hover {
-  -webkit-transition: color .3s ease;
-  transition: color .3s ease;
-  color: goldenrod;
-}
-
-.navItem a:active,
-.navItem a a:active {
-  color: gold;
-}
-
 .navItem .activeLink,
 .navItem a .activeLink {
-  color: #40394a;
+  color: #a5a5aa;
+}
+
+.navItem {
+  background: #30475e;
+  border: 0px solid;
+  border-radius: 6px;
+  margin: 25px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 110%;
+  height: 10%;
+  cursor: pointer;
+  -webkit-transition: background .3s ease;
+  transition: background .3s ease;
+}
+
+.navItem:hover {
+  -webkit-transition: background .3s ease;
+  transition: background .3s ease;
+  background: #f05454;
+}
+
+.navItem:hover a {
+  color: #222831;
+}
+
+.navItem:active {
+  background: #f2a154;
+}
+
+.navItem:active a {
+  color: #f7f6e7;
 }
 
 .settings {

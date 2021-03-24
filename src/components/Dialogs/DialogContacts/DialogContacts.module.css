@@ -1,7 +1,8 @@
 .dialogContacts {
   width: 100%;
-  -webkit-padding-start: 30px;
-          padding-inline-start: 30px;
+  -webkit-padding-start: 0;
+          padding-inline-start: 0;
+  margin-block: 0;
 }
 
 .title {

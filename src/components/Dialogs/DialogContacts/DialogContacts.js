@@ -7,7 +7,7 @@ function DialogContacts() {
         <>
             <span className={styles.title}>DIALOGS</span>
             <ul className={styles.dialogContacts}>
-                <DialogContact contactName="Andrew" />
+                {/* <DialogContact contactName="Andrew" />
                 <DialogContact contactName="Dmitry" active />
                 <DialogContact contactName="Sasha" />
                 <DialogContact contactName="Sveta" />
@@ -16,7 +16,8 @@ function DialogContacts() {
                 <DialogContact contactName="This is a list item" />
                 <DialogContact contactName="Another list item" />
                 <DialogContact contactName="This is a list item" />
-                <DialogContact contactName="Yup, another list item" />
+                <DialogContact contactName="Yup, another list item" /> */}
+                {['Andrew', 'Dmitry', 'Sasha', 'Sveta', 'Valera', 'Viktor'].map((p, i) => <DialogContact contactName={p} key={p} id={i} />)}
             </ul>
         </>
     );

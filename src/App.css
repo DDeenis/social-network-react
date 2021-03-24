@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 body {
+  background: #dddddd;
   margin: 20px 40px;
   font-family: Roboto, Arial, Helvetica, sans-serif;
 }
@@ -13,4 +14,25 @@ main {
 .app-wapper-content {
   margin: 10px;
   width: 80%;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  background: #30475e;
+  transition: background .3s ease;
+  border: 0px solid;
+  border-radius: 5px;
+}
+
+.btn:hover {
+  background: #f05454;
+  transition: background .3s ease;
+}
+
+.btn:active {
+  background: #f2a154;
+  transition: background .3s ease;
 }

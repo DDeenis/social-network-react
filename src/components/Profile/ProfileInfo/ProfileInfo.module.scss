@@ -1,0 +1,33 @@
+.personalInfo {
+    margin-left: 30px;
+    color: #47525E;
+    font-size: 20px;
+    line-height: 13px;
+    width: 489px;
+}
+
+.activeLink {
+    text-decoration: none;
+    color: blue;
+    transition: color .1s ease;
+
+    &:hover {
+        color: goldenrod;
+        transition: color .1s ease;
+    }
+
+    &:active {
+        color: gold;
+        transition: color .1s ease;
+    }
+}
+
+.userLogo {
+    width: 174px;
+    height: 164px;
+}
+
+.userData {
+    display: flex;
+    flex-flow: row wrap;
+}

@@ -18,9 +18,10 @@ function Nav() {
                 <li className={styles.navItem}>
                     <NavLink to="/music" activeClassName={styles.activeLink}>Music</NavLink>
                 </li>
+                <li className={styles.navItem}>
+                    <a gref="/settings" activeClassName={styles.activeLink}>Settings</a>
+                </li>
             </ul>
-
-            <NavLink to="/settings" className={`${styles.settings} ${styles.navItem}`}>Settings</NavLink>
         </nav>
     );
 }
