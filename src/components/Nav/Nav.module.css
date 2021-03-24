@@ -26,23 +26,17 @@ nav {
           padding-inline-start: 0;
 }
 
-.navItem,
 .navItem a {
   color: #fff;
   font-size: 24px;
   line-height: 44px;
   text-decoration: none;
-}
-
-.navItem a,
-.navItem a a {
   -webkit-transition: color .3s ease;
   transition: color .3s ease;
 }
 
-.navItem .activeLink,
-.navItem a .activeLink {
-  color: #a5a5aa;
+.navItem a.activeLink {
+  color: #8ac4d0;
 }
 
 .navItem {
@@ -67,8 +61,6 @@ nav {
 }
 
 .navItem:hover {
-  -webkit-transition: background .3s ease;
-  transition: background .3s ease;
   background: #f05454;
 }
 

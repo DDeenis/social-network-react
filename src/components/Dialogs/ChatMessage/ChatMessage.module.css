@@ -43,7 +43,7 @@
 }
 
 .userName {
-  color: #8190A5;
+  color: #222831;
   font-size: 18px;
   line-height: 36px;
   text-align: center;
@@ -52,6 +52,7 @@
 }
 
 .messageBlock {
+  background: #30475e;
   border: 2px solid #C0CCDA;
   border-radius: 10px;
   width: 278px;
@@ -70,10 +71,23 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  position: relative;
+}
+
+.messageBlock::before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-right: 20px solid #30475e;
+  position: absolute;
+  top: 6px;
+  left: -15px;
 }
 
 .messageContent {
-  color: #8190A5;
+  color: #fff;
   font-size: 18px;
   line-height: 30px;
 }
