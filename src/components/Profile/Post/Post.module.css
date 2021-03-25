@@ -10,9 +10,10 @@
   -webkit-box-direction: normal;
       -ms-flex-flow: row wrap;
           flex-flow: row wrap;
-  -webkit-box-pack: unsafe;
-      -ms-flex-pack: unsafe;
-          justify-content: unsafe;
+  background: #eeebdd;
+  padding: 10px;
+  border: 0 solid;
+  border-radius: 10px;
 }
 
 .avatar {
@@ -26,6 +27,7 @@
 .postText {
   color: #47525E;
   font-size: 20px;
+  margin-left: 20px;
 }
 
 .likesBlock {

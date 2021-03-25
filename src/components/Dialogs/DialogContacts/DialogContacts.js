@@ -1,23 +1,15 @@
 import React from 'react'
 import DialogContact from '../DialogContact/DialogContact'
 import styles from './DialogContacts.module.css'
+// !!!
+import { people } from "../../../data";
 
 function DialogContacts() {
     return (
         <>
             <span className={styles.title}>DIALOGS</span>
             <ul className={styles.dialogContacts}>
-                {/* <DialogContact contactName="Andrew" />
-                <DialogContact contactName="Dmitry" active />
-                <DialogContact contactName="Sasha" />
-                <DialogContact contactName="Sveta" />
-                <DialogContact contactName="Valera" />
-                <DialogContact contactName="Viktor" />
-                <DialogContact contactName="This is a list item" />
-                <DialogContact contactName="Another list item" />
-                <DialogContact contactName="This is a list item" />
-                <DialogContact contactName="Yup, another list item" /> */}
-                {['Andrew', 'Dmitry', 'Sasha', 'Sveta', 'Valera', 'Viktor'].map((p, i) => <DialogContact contactName={p} key={p} id={i} />)}
+                {people.map((p, i) => <DialogContact contactName={p} key={p} id={i} />)}
             </ul>
         </>
     );

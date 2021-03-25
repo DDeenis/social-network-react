@@ -14,6 +14,11 @@ nav {
 .navItems {
     list-style: none;
     padding-inline-start: 0;
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .navItem a {
@@ -31,13 +36,13 @@ nav {
 .navItem {
     background: #30475e;
     border: 0px solid;
-    border-radius: 6px;
-    margin: 25px 0;
+    // border-radius: 6px;
+    margin: 10px 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 110%;
-    height: 10%;
+    width: 100%;
+    height: 25%;
     cursor: pointer;
     transition: background .3s ease;
 

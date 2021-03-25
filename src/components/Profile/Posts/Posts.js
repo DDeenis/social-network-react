@@ -1,6 +1,7 @@
 import React from "react";
 import Post from "../Post/Post";
 import styles from './Posts.module.css';
+import { posts } from "../../../data";
 
 function Posts() {
     return (
@@ -12,9 +13,7 @@ function Posts() {
             </div>
 
             <div className={styles.userPosts}>
-                <Post text='Hey, why nobody love me?' likes={10} views={3} />
-                <Post text="It's our new program! Hey!" likes={100} views={1} />
-                { ['one', 'two', 'three'].map(post => <Post text={post} key={post[0] + post[post.length - 1]} />) }
+                { posts.map(post => <Post text={post.content} likes={post.likes} views={post.views} key={post[0] + post[post.length - 1]} />) }
             </div>
         </div>
     );
