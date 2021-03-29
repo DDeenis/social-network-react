@@ -3,16 +3,16 @@ import Chat from "./Chat/Chat";
 import DialogContacts from "./DialogContacts/DialogContacts";
 import styles from './Dialogs.module.css';
 
-function Dialogs() {
+function Dialogs(props) {
     return (
         <div className={styles.dialogsSection}>
             <div className={styles.dialogContacts}>
-                <DialogContacts />
+                <DialogContacts people={props.state.people} />
             </div>
 
             <div className={styles.separator}></div>
 
-            <Chat />
+            <Chat messages={props.state.messages} />
         </div>
     );
 }

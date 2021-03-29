@@ -1,9 +1,8 @@
 import React from "react";
 import Post from "../Post/Post";
 import styles from './Posts.module.css';
-import { posts } from "../../../data";
 
-function Posts() {
+function Posts(props) {
     return (
         <div className={styles.postsBlock}>
             <div className={styles.newPost}>
@@ -13,7 +12,7 @@ function Posts() {
             </div>
 
             <div className={styles.userPosts}>
-                { posts.map(post => <Post text={post.content} likes={post.likes} views={post.views} key={post[0] + post[post.length - 1]} />) }
+                { props.posts.map(post => <Post text={post.content} likes={post.likes} views={post.views} key={post[0] + post[post.length - 1]} />) }
             </div>
         </div>
     );

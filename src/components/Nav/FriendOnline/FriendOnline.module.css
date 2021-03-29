@@ -1,0 +1,26 @@
+.friendOnline {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+}
+
+.avatar {
+  background-color: #FFC82C;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.name {
+  color: #FFFFFF;
+  font-size: 18px;
+  line-height: 23px;
+  cursor: pointer;
+}
+/*# sourceMappingURL=FriendOnline.module.css.map */

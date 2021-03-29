@@ -66,3 +66,19 @@ nav {
 .settings {
     margin: 20px 0;
 }
+
+.friendsOnline {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
+}
+
+.friendsOnlineTitle {
+    color: #FFFFFF;
+    font-size: 30px;
+    line-height: 65px;
+    font-weight: normal;
+    margin: 10px 0;
+}

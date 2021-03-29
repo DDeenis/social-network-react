@@ -1,8 +1,9 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
+import FriendsOnline from './FriendsOnline/FriendsOnline';
 import styles from './Nav.module.css'
 
-function Nav() {
+function Nav(props) {
     return (
         <nav>
             <ul className={styles.navItems}>
@@ -22,6 +23,11 @@ function Nav() {
                     <a gref="/settings" activeClassName={styles.activeLink}>Settings</a>
                 </li>
             </ul>
+
+            <div className={styles.friendsOnline}>
+                <h3 className={styles.friendsOnlineTitle}>Friends</h3>
+                <FriendsOnline people={props.state.people} />
+            </div>
         </nav>
     );
 }

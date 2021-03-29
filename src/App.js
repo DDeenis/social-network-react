@@ -6,18 +6,23 @@ import Profile from './components/Profile/Profile'
 import Header from './components/Header/Header';
 import Nav from './components/Nav/Nav';
 
-function App() {
+function App(props) {
   return (
     <BrowserRouter>
       <div className="App">
         <Header />
         <main>
           <aside>
-            <Nav />
+            <Nav state={props.state.sidebar} />
           </aside>
           <div className="app-wapper-content">
-            <Route path='/profile' component={Profile} />
-            <Route path='/dialogs' component={Dialogs} />
+            <Route path='/profile'>
+              <Profile state={props.state.profile} />
+            </Route>
+
+            <Route path='/dialogs'>
+              <Dialogs state={props.state.chat} />
+            </Route>
           </div>
         </main>
       </div>
