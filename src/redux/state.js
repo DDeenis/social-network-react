@@ -31,8 +31,10 @@ const state = {
 
 const actions = {
     profile: {
-        addPost: ({ content, likes = 0, views = 0 }) => {
+        addPost: ({ content = state.profile.postInput, likes = 0, views = 0 }) => {
             state.profile.posts.push({ content, likes, views });
+            console.log(state.profile.postInput);
+            actions.profile.changeInput('');
             renderAll(state, actions);
         },
         changeInput: (text) => {

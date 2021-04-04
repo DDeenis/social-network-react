@@ -13,8 +13,7 @@ function Posts(props) {
 
         if(!postText) return;
 
-        props.addPost({ content: postText });
-        inputArea.value = '';
+        props.addPost({});
     };
 
     const inputText = () => {
