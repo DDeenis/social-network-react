@@ -17,11 +17,11 @@ function App(props) {
           </aside>
           <div className="app-wapper-content">
             <Route path='/profile'>
-              <Profile state={props.state.profile} />
+              <Profile state={props.state.profile} actions={props.actions.profile} />
             </Route>
 
             <Route path='/dialogs'>
-              <Dialogs state={props.state.chat} />
+              <Dialogs state={props.state.chat} actions={props.actions.dialogs} />
             </Route>
           </div>
         </main>

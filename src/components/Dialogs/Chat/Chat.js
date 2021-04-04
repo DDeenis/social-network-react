@@ -1,16 +1,18 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import ChatMessage from '../ChatMessage/ChatMessage'
 import styles from './Chat.module.css'
 
 function Chat(props) {
-    const newMessageArea = React.createRef();
+    const newMessageArea = useRef(null);
 
-    const chatMessagesList = props.messages.map(m => <ChatMessage userName={m.name} content={m.message} key={m.name + m.name[0]} />);
+    const chatMessagesList = props.messages.map(m => <ChatMessage userName={m.name} content={m.message} key={m.message.charCodeAt(0) + m.name.charCodeAt(1)} />);
 
     const createMessage = () => {
         const messageText = newMessageArea.current.value;
 
-        props.messages.push({ name: 'Me', message: messageText });
+        if(!messageText) return;
+
+        props.addMessage({ name: 'Me', message: messageText });
 
         newMessageArea.current.value = '';
     };

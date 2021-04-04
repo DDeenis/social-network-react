@@ -12,7 +12,7 @@ function Dialogs(props) {
 
             <div className={styles.separator}></div>
 
-            <Chat messages={props.state.messages} />
+            <Chat messages={props.state.messages} addMessage={props.actions.addMessage} />
         </div>
     );
 }

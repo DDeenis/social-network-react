@@ -1,45 +1,35 @@
-import React from "react";
+import React, { useRef } from "react";
 import Post from "../Post/Post";
 import styles from './Posts.module.css';
 
-/*
-    // нормальный вариант
-
-    const [posts, changePosts] = useState(props.posts);
+function Posts(props) {
+    const newPostArea = useRef(null);
 
     const maxCharacters = 70;
     const createPost = () => {
-        const inputArea = document.querySelector(`.${styles.postInput}`);
+        const inputArea = newPostArea.current;
 
-        const postText = inputArea.value.length <= maxCharacters ? inputArea.value : inputArea.value.slice(0, maxCharacters);
+        const postText = inputArea.value.length <= maxCharacters ? inputArea.value : inputArea.value.slice(0, maxCharacters - 3) + '...';
 
-        changePosts(posts.concat([{ content: postText, likes: 0, views: 0 }]));
+        if(!postText) return;
 
+        props.addPost({ content: postText });
         inputArea.value = '';
     };
-*/
 
-function Posts(props) {
-    const newPostArea = React.createRef();
-
-    const createPost = () => {
-        const postText = newPostArea.current.value;
-
-        // will not re-render element!!!
-        props.posts.push({ content: postText, likes: 0, views: 0 });
-
-        newPostArea.current.value = '';
-    };
+    const inputText = () => {
+        props.changeInput(newPostArea.current.value);
+    }
 
     const postsList = props.posts.map(
-        post => <Post text={post.content} likes={post.likes} views={post.views} key={post[0] + post[post.length - 1]} />
+        post => <Post text={post.content} likes={post.likes} views={post.views} key={post.content[0] + post.content[post.content.length - 1]} />
     );
 
     return (
         <div className={styles.postsBlock}>
             <div className={styles.newPost}>
                 <h2>My posts</h2>
-                <textarea className={styles.postInput} placeholder="your news..." ref={newPostArea}></textarea>
+                <textarea className={styles.postInput} placeholder="your news..." ref={newPostArea} value={props.postInput} onChange={inputText} />
                 <button className={`btn ${styles.newPostBtn}`} onClick={createPost}>Send</button>
             </div>
 
