@@ -29,6 +29,31 @@ const store = {
     _subscriber(store) {
         console.log(store);
     },
+    _addPost() {
+        this._state.profile.posts.push({
+            content: this._state.profile.postInput,
+            likes: 0,
+            views: 0
+        });
+        this._state.profile.postInput = '';
+        this._subscriber(this);
+    },
+    _updatePostInput(action) {
+        this._state.profile.postInput = action.text;
+        this._subscriber(this);
+    },
+    _addMessage() {
+        this._state.chat.messages.push({
+            name: 'Me',
+            message: this._state.chat.messageInput
+        });
+        this._state.chat.messageInput = '';
+        this._subscriber(this);
+    },
+    _updateMessageInput(action) {
+        this._state.chat.messageInput = action.text;
+        this._subscriber(this);
+    },
     getState() {
         return this._state;
     },
@@ -38,32 +63,19 @@ const store = {
     dispatch(action) {
         switch (action.type) {
             case 'ADD_POST':
-                this._state.profile.posts.push({
-                    content: this._state.profile.postInput,
-                    likes: 0,
-                    views: 0
-                });
-                this._state.profile.postInput = '';
-                this._subscriber(this);
+                this._addPost();
                 break;
 
             case 'UPDATE_POST_INPUT':
-                this._state.profile.postInput = action.text;
-                this._subscriber(this);
+                this._updatePostInput(action);
                 break;
 
             case 'ADD_MESSAGE':
-                this._state.chat.messages.push({
-                    name: 'Me',
-                    message: this._state.chat.messageInput
-                });
-                this._state.chat.messageInput = '';
-                this._subscriber(this);
+                this._addMessage();
                 break;
 
             case 'UPDATE_MESSAGE_INPUT':
-                this._state.chat.messageInput = action.text;
-                this._subscriber(this);
+                this._updateMessageInput(action);
                 break;
 
             default:
