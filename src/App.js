@@ -13,15 +13,15 @@ function App(props) {
         <Header />
         <main>
           <aside>
-            <Nav state={props.state.sidebar} />
+            <Nav state={props.store.getState().sidebar} />
           </aside>
           <div className="app-wapper-content">
             <Route path='/profile'>
-              <Profile state={props.state.profile} actions={props.actions.profile} />
+              <Profile state={props.store.getState().profile} dispatch={props.store.dispatch.bind(props.store)} />
             </Route>
 
             <Route path='/dialogs'>
-              <Dialogs state={props.state.chat} actions={props.actions.dialogs} />
+              <Dialogs state={props.store.getState().chat} dispatch={props.store.dispatch.bind(props.store)} />
             </Route>
           </div>
         </main>

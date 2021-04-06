@@ -13,11 +13,20 @@ function Posts(props) {
 
         if(!postText) return;
 
-        props.addPost({});
+        props.dispatch(
+            {
+                type: 'ADD_POST'
+            }
+        );
     };
 
     const inputText = () => {
-        props.changeInput(newPostArea.current.value);
+        props.dispatch(
+            {
+                type: 'UPDATE_POST_INPUT',
+                text: newPostArea.current.value
+            }
+        );
     }
 
     const postsList = props.posts.map(

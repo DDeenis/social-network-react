@@ -9,7 +9,10 @@ function Profile(props) {
             <div className={styles.userHeader}></div>
             <section className={styles.userInfo}>
                 <ProfileInfo name="Dmitry K." birthday="2 january" city="Minsk" education="BSU" website="https://it-kamasutra.com" />
-                <Posts posts={props.state.posts} addPost={props.actions.addPost} postInput={props.state.postInput} changeInput={props.actions.changeInput} />
+                <Posts posts={props.state.posts}
+                       dispatch={props.dispatch}
+                       postInput={props.state.postInput}
+                />
             </section>
         </div>
     );

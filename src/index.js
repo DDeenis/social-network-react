@@ -1,9 +1,21 @@
 import reportWebVitals from './reportWebVitals';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import  store from "./redux/state";
 
-import  { state, actions } from "./redux/state";
-import renderAll from './render';
+function renderAll(store) {
+    ReactDOM.render(
+        <React.StrictMode>
+            <App store={store} />
+        </React.StrictMode>,
+        document.getElementById('root')
+    );
+}
 
-renderAll(state, actions)
+store.subscribe(renderAll);
+renderAll(store);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
