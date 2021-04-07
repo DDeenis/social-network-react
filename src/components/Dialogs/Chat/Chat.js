@@ -1,4 +1,5 @@
 import React, { useRef } from 'react'
+import { createMessageActionCreator, inputMessageTextActionCreator } from '../../../redux/actionCreators';
 import ChatMessage from '../ChatMessage/ChatMessage'
 import styles from './Chat.module.css'
 
@@ -9,9 +10,7 @@ function Chat(props) {
 
     const createMessage = () => {
         props.dispatch(
-            {
-                type: 'ADD_MESSAGE'
-            }
+            createMessageActionCreator()
         )
     };
 
@@ -21,10 +20,7 @@ function Chat(props) {
         if(!messageText) return;
 
         props.dispatch(
-            {
-                type: 'UPDATE_MESSAGE_INPUT',
-                text: messageText
-            }
+            inputMessageTextActionCreator(messageText)
         )
     }
 

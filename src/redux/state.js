@@ -1,3 +1,5 @@
+import { actionTypes } from "./actionCreators";
+
 const store = {
     _state: {
         profile: {
@@ -33,8 +35,9 @@ const store = {
         this._state.profile.posts.push({
             content: this._state.profile.postInput,
             likes: 0,
-            views: 0
+            views: 0,
         });
+        console.log(this._state.profile.posts);
         this._state.profile.postInput = '';
         this._subscriber(this);
     },
@@ -62,19 +65,19 @@ const store = {
     },
     dispatch(action) {
         switch (action.type) {
-            case 'ADD_POST':
+            case actionTypes.ADD_POST:
                 this._addPost();
                 break;
 
-            case 'UPDATE_POST_INPUT':
+            case actionTypes.UPDATE_POST_INPUT:
                 this._updatePostInput(action);
                 break;
 
-            case 'ADD_MESSAGE':
+            case actionTypes.ADD_MESSAGE:
                 this._addMessage();
                 break;
 
-            case 'UPDATE_MESSAGE_INPUT':
+            case actionTypes.UPDATE_MESSAGE_INPUT:
                 this._updateMessageInput(action);
                 break;
 
@@ -83,6 +86,5 @@ const store = {
         }
     }
 }
-
 
 export default store;

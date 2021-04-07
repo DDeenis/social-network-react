@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import { createPostActionCreator, inputPostTextActionCreator } from "../../../redux/actionCreators";
 import Post from "../Post/Post";
 import styles from './Posts.module.css';
 
@@ -14,18 +15,13 @@ function Posts(props) {
         if(!postText) return;
 
         props.dispatch(
-            {
-                type: 'ADD_POST'
-            }
+            createPostActionCreator()
         );
     };
 
-    const inputText = () => {
+    const inputPostText = () => {
         props.dispatch(
-            {
-                type: 'UPDATE_POST_INPUT',
-                text: newPostArea.current.value
-            }
+            inputPostTextActionCreator(newPostArea.current.value)
         );
     }
 
@@ -37,7 +33,7 @@ function Posts(props) {
         <div className={styles.postsBlock}>
             <div className={styles.newPost}>
                 <h2>My posts</h2>
-                <textarea className={styles.postInput} placeholder="your news..." ref={newPostArea} value={props.postInput} onChange={inputText} />
+                <textarea className={styles.postInput} placeholder="your news..." ref={newPostArea} value={props.postInput} onChange={inputPostText} />
                 <button className={`btn ${styles.newPostBtn}`} onClick={createPost}>Send</button>
             </div>
 
