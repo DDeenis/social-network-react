@@ -5,26 +5,26 @@ const actionTypes = Object.freeze({
     UPDATE_MESSAGE_INPUT: 'UPDATE_MESSAGE_INPUT',
 });
 
-const createPostActionCreator = () => {
+const createPostCreator = () => {
     return {
         type: actionTypes.ADD_POST
     };
 };
 
-const inputPostTextActionCreator = (text) => {
+const inputPostTextCreator = (text) => {
     return {
         type: actionTypes.UPDATE_POST_INPUT,
         text: text
     };
 }
 
-const createMessageActionCreator = () => {
+const createMessageCreator = () => {
     return {
         type: actionTypes.ADD_MESSAGE
     };
 };
 
-const inputMessageTextActionCreator = (text) => {
+const inputMessageTextCreator = (text) => {
     return {
         type: actionTypes.UPDATE_MESSAGE_INPUT,
         text: text
@@ -33,8 +33,8 @@ const inputMessageTextActionCreator = (text) => {
 
 export {
     actionTypes,
-    createPostActionCreator,
-    createMessageActionCreator,
-    inputPostTextActionCreator,
-    inputMessageTextActionCreator
+    createPostCreator,
+    createMessageCreator,
+    inputPostTextCreator,
+    inputMessageTextCreator
 }

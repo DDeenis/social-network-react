@@ -1,26 +1,20 @@
-import React, { useRef } from 'react'
-import { createMessageActionCreator, inputMessageTextActionCreator } from '../../../redux/actionCreators';
+import React from 'react'
+import { createMessageCreator, inputMessageTextCreator } from '../../../redux/actionCreators';
 import ChatMessage from '../ChatMessage/ChatMessage'
 import styles from './Chat.module.css'
 
 function Chat(props) {
-    const newMessageArea = useRef(null);
-
     const chatMessagesList = props.messages.map(m => <ChatMessage userName={m.name} content={m.message} key={m.message.charCodeAt(0) + m.name.charCodeAt(1)} />);
 
     const createMessage = () => {
         props.dispatch(
-            createMessageActionCreator()
+            createMessageCreator()
         )
     };
 
-    const changeInput = () => {
-        const messageText = newMessageArea.current.value;
-
-        if(!messageText) return;
-
+    const changeInput = (e) => {
         props.dispatch(
-            inputMessageTextActionCreator(messageText)
+            inputMessageTextCreator(e.target.value)
         )
     }
 
@@ -30,7 +24,6 @@ function Chat(props) {
             <div className={styles.chatInput}>
                 <textarea className={styles.messageInput}
                           placeholder="Type your message"
-                          ref={newMessageArea}
                           value={props.messageInput}
                           onChange={changeInput}
                 />
