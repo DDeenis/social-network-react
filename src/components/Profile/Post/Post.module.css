@@ -27,7 +27,7 @@
 .postText {
   color: #47525E;
   font-size: 20px;
-  margin-left: 20px;
+  margin: 15px;
   overflow: hidden;
   text-overflow: ellipsis;
 }

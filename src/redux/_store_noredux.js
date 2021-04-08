@@ -42,7 +42,7 @@ const store = {
         this._state.profile = profileReducer(this._state.profile, action);
         this._state.chat = chatReducer(this._state.chat, action);
 
-        this._subscriber(this);
+        this._subscriber();
     }
 }
 

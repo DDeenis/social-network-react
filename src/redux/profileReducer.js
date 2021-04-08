@@ -1,5 +1,14 @@
 import { actionTypes } from './actionCreators';
 
+const initialState = {
+    posts: [
+        { content: 'Hey, why nobody love me?', likes: 0, views: 1000 },
+        { content: 'It\'s our new program! Hey!', likes: 100, views: 5 },
+        { content: 'Hidden post', likes: 0, views: 0 }
+    ],
+    postInput: ''
+};
+
 function _addPost(state) {
     state.posts.push({
         content: state.postInput,
@@ -17,7 +26,7 @@ function _updatePostInput(state, text) {
     return state;
 }
 
-function profileReducer(state, action) {
+function profileReducer(state = initialState, action) {
     switch (action.type) {
         case actionTypes.ADD_POST:
             state = _addPost(state);
