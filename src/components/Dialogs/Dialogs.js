@@ -1,5 +1,5 @@
 import React from "react";
-import Chat from "./Chat/Chat";
+import ChatContainer from "./Chat/ChatContainer";
 import DialogContacts from "./DialogContacts/DialogContacts";
 import styles from './Dialogs.module.css';
 
@@ -12,7 +12,7 @@ function Dialogs(props) {
 
             <div className={styles.separator}></div>
 
-            <Chat messages={props.state.messages} dispatch={props.dispatch} messageInput={props.state.messageInput} />
+            <ChatContainer state={props.state} dispatch={props.dispatch} />
         </div>
     );
 }

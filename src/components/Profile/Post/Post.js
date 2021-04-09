@@ -5,10 +5,10 @@ function Post({ text, likes, views }) {
     return (
         <section className={styles.postBlock}>
             <div className={styles.avatar}></div>
-            
-            <acticle className={styles.postText}>
+
+            <p className={styles.postText}>
                 {text}
-            </acticle>
+            </p>
 
             <div className={styles.likesBlock}>
                 <span className={styles.likes}>{likes}</span>

@@ -7,20 +7,23 @@ import Header from './components/Header/Header';
 import Nav from './components/Nav/Nav';
 
 function App(props) {
+  const state = props.store.getState();
+  const dispatch = props.store.dispatch.bind(props.store);
+
   return (
     <div className="App">
       <Header />
       <main>
         <aside>
-          <Nav state={props.store.getState().sidebar} />
+          <Nav state={state.sidebar} />
         </aside>
         <div className="app-wapper-content">
           <Route path='/profile'>
-            <Profile state={props.store.getState().profile} dispatch={props.store.dispatch.bind(props.store)} />
+            <Profile state={state.profile} dispatch={dispatch} />
           </Route>
 
           <Route path='/dialogs'>
-            <Dialogs state={props.store.getState().chat} dispatch={props.store.dispatch.bind(props.store)} />
+            <Dialogs state={state.chat} dispatch={dispatch} />
           </Route>
         </div>
       </main>
