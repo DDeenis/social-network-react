@@ -14,27 +14,21 @@ const initialState = {
 };
 
 function _addMessage(state) {
-    state.messages.push({
-        name: 'Me',
-        message: state.messageInput
-    });
-
-    return Object.assign({}, state, { messageInput: '' });
+    const newMessage = { name: 'Me', message: state.messageInput }
+    return {...state, messageInput: '', messages: [...state.messages, newMessage]};
 }
 
 function _updateMessageInput(state, text) {
-    return Object.assign({}, state, { messageInput: text });
+    return {...state, messageInput: text};
 }
 
 function chatReducer(state = initialState, action) {
     switch (action.type) {
         case actionTypes.ADD_MESSAGE:
-            state = _addMessage(state);
-            break;
+            return _addMessage(state);
 
         case actionTypes.UPDATE_MESSAGE_INPUT:
-            state = _updateMessageInput(state, action.text);
-            break;
+            return _updateMessageInput(state, action.text);
 
         default:
             break;

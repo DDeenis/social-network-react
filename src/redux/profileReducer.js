@@ -3,35 +3,27 @@ import { actionTypes } from './actionCreators';
 const initialState = {
     posts: [
         { content: 'Hey, why nobody love me?', likes: 0, views: 1000 },
-        { content: 'It\'s our new program! Hey!', likes: 100, views: 5 },
-        { content: 'Hidden post', likes: 0, views: 0 }
+        { content: 'It\'s our new program! Hey!', likes: 100, views: 5 }
     ],
     postInput: ''
 };
 
 function _addPost(state) {
-    state.posts.push({
-        content: state.postInput,
-        likes: 0,
-        views: 0,
-    });
-
-    return Object.assign({}, state, { postInput: '' });
+    const newPost = { content: state.postInput, likes: 0, views: 0 };
+    return {...state, postInput: '', posts: [...state.posts, newPost]};
 }
 
 function _updatePostInput(state, text) {
-    return Object.assign({}, state, { postInput: text });
+    return {...state, postInput: text};
 }
 
 function profileReducer(state = initialState, action) {
     switch (action.type) {
         case actionTypes.ADD_POST:
-            state = _addPost(state);
-            break;
+            return _addPost(state);
 
         case actionTypes.UPDATE_POST_INPUT:
-            state = _updatePostInput(state, action.text);
-            break;
+            return _updatePostInput(state, action.text);
 
         default:
             break;
