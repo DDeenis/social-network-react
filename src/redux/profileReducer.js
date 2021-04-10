@@ -15,15 +15,12 @@ function _addPost(state) {
         likes: 0,
         views: 0,
     });
-    state.postInput = '';
 
-    return state;
+    return Object.assign({}, state, { postInput: '' });
 }
 
 function _updatePostInput(state, text) {
-    state.postInput = text;
-
-    return state;
+    return Object.assign({}, state, { postInput: text });
 }
 
 function profileReducer(state = initialState, action) {

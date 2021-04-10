@@ -18,15 +18,12 @@ function _addMessage(state) {
         name: 'Me',
         message: state.messageInput
     });
-    state.messageInput = '';
 
-    return state;
+    return Object.assign({}, state, { messageInput: '' });
 }
 
 function _updateMessageInput(state, text) {
-    state.messageInput = text;
-
-    return state;
+    return Object.assign({}, state, { messageInput: text });
 }
 
 function chatReducer(state = initialState, action) {

@@ -5,12 +5,15 @@ import './index.css';
 import App from './App';
 import store from "./redux/store";
 import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
 
 function renderAll() {
     ReactDOM.render(
         <React.StrictMode>
             <BrowserRouter>
-                <App store={store} />
+                <Provider store={store}>
+                    <App store={store} />
+                </Provider>
             </BrowserRouter>
         </React.StrictMode>,
         document.getElementById('root')
