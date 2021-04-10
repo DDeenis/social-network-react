@@ -8,7 +8,6 @@ import Nav from './components/Nav/Nav';
 
 function App(props) {
   const state = props.store.getState();
-  const dispatch = props.store.dispatch.bind(props.store);
 
   return (
     <div className="App">
@@ -19,11 +18,11 @@ function App(props) {
         </aside>
         <div className="app-wapper-content">
           <Route path='/profile'>
-            <Profile state={state.profile} dispatch={dispatch} />
+            <Profile />
           </Route>
 
           <Route path='/dialogs'>
-            <Dialogs state={state.chat} dispatch={dispatch} />
+            <Dialogs />
           </Route>
         </div>
       </main>
