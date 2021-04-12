@@ -1,4 +1,5 @@
 import React from 'react'
+import AvatarMock from '../AvatarMock/AvatarMock';
 import styles from './ChatMessage.module.css'
 // import Smile from '../../../assets/images/smile.png'
 
@@ -6,7 +7,7 @@ function ChatMessage({ userName, content }) {
     return (
         <div className={styles.message}>
             <div className={styles.userInfo}>
-                <div className={styles.userAvatar}></div>
+                <AvatarMock />
                 <p className={styles.userName}>{userName}</p>
             </div>
 
