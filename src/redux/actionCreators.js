@@ -4,7 +4,8 @@ const actionTypes = Object.freeze({
     ADD_MESSAGE: 'ADD_MESSAGE',
     UPDATE_MESSAGE_INPUT: 'UPDATE_MESSAGE_INPUT',
     FOLLOW_USER: 'FOLLOW_USER',
-    UNFOLLOW_USER: 'UNFOLLOW_USER'
+    UNFOLLOW_USER: 'UNFOLLOW_USER',
+    SET_USERS: 'SET_USERS'
 });
 
 const createPostCreator = () => {
@@ -47,6 +48,13 @@ const unfollowUserCreator = (userId) => {
     }
 }
 
+const setUsersCreator = (users) => {
+    return {
+        type: actionTypes.SET_USERS,
+        users
+    }
+}
+
 export {
     actionTypes,
     createPostCreator,
@@ -54,5 +62,6 @@ export {
     inputPostTextCreator,
     inputMessageTextCreator,
     followUserCreator,
-    unfollowUserCreator
+    unfollowUserCreator,
+    setUsersCreator
 }

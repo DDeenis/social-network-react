@@ -1,13 +1,15 @@
-import { connect } from "react-redux";
+import React from 'react';
+import { useSelector } from "react-redux";
 import DialogContacts from "./DialogContacts";
 
-const mapStateToProps = (state) => ({
-    people: state.chat.people
-});
+function DialogContactsContainer() {
+    const people = useSelector(state => state.chat.people);
 
-// eslint-disable-next-line no-unused-vars
-const mapDispatchToProps = (dispatch) => ({})
-
-const DialogContactsContainer = connect(mapStateToProps, mapDispatchToProps)(DialogContacts);
+    return (
+        <DialogContacts 
+            people={people}
+        />
+    );
+}
 
 export default DialogContactsContainer;

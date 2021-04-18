@@ -1,25 +1,23 @@
-import { connect } from 'react-redux';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { createPostCreator, inputPostTextCreator } from '../../../redux/actionCreators';
 import Posts from '../Posts/Posts';
 
-const mapStateToProps = (state) => ({
-    posts: state.profile.posts,
-    postInput: state.profile.postInput
-});
+function PostsContainer() {
+    const { posts, postInput } = useSelector(state => state.profile);
+    const dispatch = useDispatch();
 
-const mapDispatchToProps = (dispatch) => ({
-    createPost: () => {
-        dispatch(
-            createPostCreator()
-        );
-    },
-    inputPostText: (e) => {
-        dispatch(
-            inputPostTextCreator(e.target.value)
-        );
-    }
-});
+    const createPost = () => dispatch(createPostCreator());
+    const inputPostText = (e) => dispatch(inputPostTextCreator(e.target.value));
 
-const PostsContainer = connect(mapStateToProps, mapDispatchToProps)(Posts);
+    return (
+        <Posts 
+            posts={posts}
+            postInput={postInput}
+            createPost={createPost}
+            inputPostText={inputPostText}
+        />
+    );
+}
 
 export default PostsContainer;

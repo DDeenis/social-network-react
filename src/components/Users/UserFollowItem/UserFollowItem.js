@@ -3,9 +3,6 @@ import AvatarMock from '../../Dialogs/AvatarMock/AvatarMock';
 import styles from './UserFollowItem.module.css';
 
 function UserFollowItem(props) {
-    const country = props.location.split(',')[0];
-    const city = props.location.split(',')[1];
-
     const changeFollowState = props.isFollowing ? props.unfollowUser : props.followUser;
 
     return (
@@ -23,8 +20,8 @@ function UserFollowItem(props) {
                     </div>
 
                     <div className={styles.userLocationWrapper}>
-                        <p className={styles.userLocation}>{country},</p>
-                        <p className={styles.userLocation}>{city}</p>
+                        <p className={styles.userLocation}>{props.location.country},</p>
+                        <p className={styles.userLocation}>{props.location.city}</p>
                     </div>
                 </div>
             </div>

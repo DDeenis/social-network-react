@@ -1,25 +1,23 @@
-import { connect } from 'react-redux';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { createMessageCreator, inputMessageTextCreator } from '../../../redux/actionCreators';
 import Chat from './Chat';
 
-const mapStateToProps = (state) => ({
-    messages: state.chat.messages,
-    messageInput: state.chat.messageInput
-});
+function ChatContainer() {
+    const { messages, messageInput } = useSelector(state => state.chat);
+    const dispatch = useDispatch();
 
-const mapDispatchToProps = (dispatch) => ({
-    createMessage: () => {
-        dispatch(
-            createMessageCreator()
-        )
-    },
-    changeInput: (e) => {
-        dispatch(
-            inputMessageTextCreator(e.target.value)
-        )
-    }
-});
+    const createMessage = () => dispatch(createMessageCreator());
+    const changeInput = (e) => dispatch(inputMessageTextCreator(e.target.value));
 
-const ChatContainer = connect(mapStateToProps, mapDispatchToProps)(Chat);
+    return (
+        <Chat 
+            messages={messages}
+            messageInput={messageInput}
+            createMessage={createMessage}
+            changeInput={changeInput}
+        />
+    );
+}
 
 export default ChatContainer;
