@@ -1,5 +1,5 @@
 import React from 'react';
-import UserFollowList from '../UserFollowList/UserFollowList';
+import UserFollowListContainer from '../UserFollowList/UserFollowListContainer';
 import styles from './UserFollow.module.css';
 
 function UserFollow() {
@@ -8,10 +8,10 @@ function UserFollow() {
             <p className={styles.title}>Users</p>
 
             <section className={styles.followList}>
-                <UserFollowList />
+                <UserFollowListContainer />
             </section>
 
-            <button className={styles.showMoreBtn}>Show more</button>
+            <button className={`btn ${styles.showMoreBtn}`}>Show more</button>
         </div>
     );
 }

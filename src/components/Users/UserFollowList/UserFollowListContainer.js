@@ -1,21 +1,22 @@
-import { connect } from "react-redux";
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { followUserCreator, unfollowUserCreator } from '../../../redux/actionCreators';
 import UserFollowList from "./UserFollowList";
 
-function mapStateToProps(state) {
-    return {
-        people: state.users.people
-    };
-}
+function UserFollowListContainer() {
+    const users = useSelector(state => state.users.people);
+    const dispatch = useDispatch();
 
-function mapDispatchToProps(dispatch) {
-    return {
-        followUser: () => {
-            // DISPATCH ACTION!!!
-            dispatch();
-        }
-    };
-}
+    const followUser = (userId) => dispatch(followUserCreator(userId));
+    const unfollowUser = (userId) => dispatch(unfollowUserCreator(userId));
 
-const UserFollowListContainer = connect(mapStateToProps, mapDispatchToProps)(UserFollowList);
+    return (
+        <UserFollowList
+            users={users}
+            followUser={followUser}
+            unfollowUser={unfollowUser}
+        />
+    );
+}
 
 export default UserFollowListContainer;

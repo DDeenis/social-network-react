@@ -6,5 +6,35 @@
   -webkit-box-direction: normal;
       -ms-flex-flow: column wrap;
           flex-flow: column wrap;
+  width: 100%;
+}
+
+.title {
+  color: #47525E;
+  font-family: 'Roboto';
+  font-size: 26px;
+}
+
+.followList {
+  width: 100%;
+}
+
+.showMoreBtn {
+  color: #FFFFFF;
+  font-family: 'Roboto';
+  font-size: 30px;
+  width: 25%;
+  margin: 10px;
+  padding: 5px;
+  text-align: left;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  border: 0 solid;
+  cursor: pointer;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
 }
 /*# sourceMappingURL=UserFollow.module.css.map */

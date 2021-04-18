@@ -3,6 +3,8 @@ const actionTypes = Object.freeze({
     UPDATE_POST_INPUT: 'UPDATE_POST_INPUT',
     ADD_MESSAGE: 'ADD_MESSAGE',
     UPDATE_MESSAGE_INPUT: 'UPDATE_MESSAGE_INPUT',
+    FOLLOW_USER: 'FOLLOW_USER',
+    UNFOLLOW_USER: 'UNFOLLOW_USER'
 });
 
 const createPostCreator = () => {
@@ -31,10 +33,26 @@ const inputMessageTextCreator = (text) => {
     };
 }
 
+const followUserCreator = (userId) => {
+    return {
+        type: actionTypes.FOLLOW_USER,
+        id: userId
+    }
+}
+
+const unfollowUserCreator = (userId) => {
+    return {
+        type: actionTypes.UNFOLLOW_USER,
+        id: userId
+    }
+}
+
 export {
     actionTypes,
     createPostCreator,
     createMessageCreator,
     inputPostTextCreator,
-    inputMessageTextCreator
+    inputMessageTextCreator,
+    followUserCreator,
+    unfollowUserCreator
 }

@@ -2,8 +2,19 @@ import React from 'react';
 import UserFollowItem from '../UserFollowItem/UserFollowItem';
 import styles from './UserFollowList.module.css';
 
-function UserFollowList(props) {
-    const usersFollowList = props.users.map(u => <UserFollowItem key={u.name[0]} name={u.name} location={u.location} message={u.message} isFollowing={u.isFollowing} />);
+function UserFollowList({ users, followUser, unfollowUser }) {
+    const usersFollowList = users.map(
+        u => <UserFollowItem 
+                key={u.id} 
+                id={u.id}
+                name={u.name} 
+                location={u.location} 
+                message={u.message} 
+                isFollowing={u.isFollowing}
+                followUser={followUser}
+                unfollowUser={unfollowUser}
+            />
+    );
 
     return (
         <div className={styles.wrapper}>
