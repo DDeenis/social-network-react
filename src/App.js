@@ -5,7 +5,7 @@ import Dialogs from './components/Dialogs/Dialogs';
 import Profile from './components/Profile/Profile'
 import Header from './components/Header/Header';
 import Nav from './components/Nav/Nav';
-import UserFollow from './components/Users/UserFollow/UserFollow';
+import Users from './components/Users/Users';
 
 function App(props) {
   const state = props.store.getState();
@@ -27,7 +27,7 @@ function App(props) {
           </Route>
 
           <Route path='/users'>
-            <UserFollow />
+            <Users />
           </Route>
         </div>
       </main>

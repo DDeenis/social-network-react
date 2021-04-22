@@ -6,11 +6,7 @@ function UserFollowList({ users, followUser, unfollowUser }) {
     const usersFollowList = users.map(
         u => <UserFollowItem 
                 key={u.id} 
-                id={u.id}
-                name={u.name} 
-                location={u.location} 
-                message={u.message} 
-                isFollowing={u.isFollowing}
+                user={u}
                 followUser={followUser}
                 unfollowUser={unfollowUser}
             />
