@@ -1,12 +1,10 @@
 import { actionTypes } from "./actionCreators";
 
 const initialState = {
-    people: [
-        // { name: 'Dmitry K.', location: { country: 'Belarus', city: 'Minsk' }, message: 'I am looking for a Job right now...', isFollowing: false, id: 1 },
-        // { name: 'Svetlana D.', location: { country: 'Belarus', city: 'Minsk' }, message: 'I am so pretty', isFollowing: false, id: 2 },
-        // { name: 'Sergei S.', location: { country: 'Ukrane', city: 'Kiev' }, message: 'I like football!!!', isFollowing: true, id: 3 },
-        // { name: 'Andrew T.', location: { country: 'United States', city: 'Philadelphia' }, message: 'I am free to help you to create good Video Production', isFollowing: true, id: 4 }
-    ]
+    people: [],
+    pageSize: 3,
+    totalUsersCount: 0,
+    currentPage: 1
 }
 
 function changeFollowState(state, userId, followed) {
@@ -17,6 +15,14 @@ function changeFollowState(state, userId, followed) {
     }
 
     return state;
+}
+
+function setTotalUsersCount(state, totalPages) {
+    return { ...state, totalPages };
+}
+
+function setCurrentPage(state, currentPage) {
+    return { ...state, currentPage };
 }
 
 function setUsers(state, users) {
@@ -33,6 +39,12 @@ function usersReducer(state = initialState, action) {
 
         case actionTypes.SET_USERS:
             return setUsers(state, action.users);
+        
+        case actionTypes.SET_TOTAL_USERS_COUNT:
+            return setTotalUsersCount(state, action.totalPages);
+
+        case actionTypes.SET_CURRENT_PAGE:
+            return setCurrentPage(state, action.currentPage);
     
         default:
             return state;

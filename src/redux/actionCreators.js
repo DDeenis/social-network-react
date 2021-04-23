@@ -5,7 +5,9 @@ const actionTypes = Object.freeze({
     UPDATE_MESSAGE_INPUT: 'UPDATE_MESSAGE_INPUT',
     FOLLOW_USER: 'FOLLOW_USER',
     UNFOLLOW_USER: 'UNFOLLOW_USER',
-    SET_USERS: 'SET_USERS'
+    SET_USERS: 'SET_USERS',
+    SET_TOTAL_USERS_COUNT: 'SET_TOTAL_USERS_COUNT',
+    SET_CURRENT_PAGE: 'SET_CURRENT_PAGE'
 });
 
 const createPostCreator = () => {
@@ -55,6 +57,20 @@ const setUsersCreator = (users) => {
     }
 }
 
+const setCurrentPageCreator = (currentPage) => {
+    return {
+        type: actionTypes.SET_CURRENT_PAGE,
+        currentPage
+    }
+}
+
+const setTotalUsersCountCreator = (totalUsersCount) => {
+    return {
+        type: actionTypes.SET_CURRENT_PAGE,
+        totalUsersCount
+    }
+}
+
 export {
     actionTypes,
     createPostCreator,
@@ -63,5 +79,7 @@ export {
     inputMessageTextCreator,
     followUserCreator,
     unfollowUserCreator,
-    setUsersCreator
+    setUsersCreator,
+    setCurrentPageCreator,
+    setTotalUsersCountCreator
 }
