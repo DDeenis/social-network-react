@@ -17,8 +17,8 @@ function changeFollowState(state, userId, followed) {
     return state;
 }
 
-function setTotalUsersCount(state, totalPages) {
-    return { ...state, totalPages };
+function setTotalUsersCount(state, totalUsersCount) {
+    return { ...state, totalUsersCount };
 }
 
 function setCurrentPage(state, currentPage) {
@@ -26,7 +26,8 @@ function setCurrentPage(state, currentPage) {
 }
 
 function setUsers(state, users) {
-    return { ...state, people: [...state.people, ...users] };
+    // return { ...state, people: [...state.people, ...users] };
+    return { ...state, people: [...users] };
 }
 
 function usersReducer(state = initialState, action) {
@@ -41,7 +42,7 @@ function usersReducer(state = initialState, action) {
             return setUsers(state, action.users);
         
         case actionTypes.SET_TOTAL_USERS_COUNT:
-            return setTotalUsersCount(state, action.totalPages);
+            return setTotalUsersCount(state, action.totalUsersCount);
 
         case actionTypes.SET_CURRENT_PAGE:
             return setCurrentPage(state, action.currentPage);

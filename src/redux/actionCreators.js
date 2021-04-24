@@ -66,7 +66,7 @@ const setCurrentPageCreator = (currentPage) => {
 
 const setTotalUsersCountCreator = (totalUsersCount) => {
     return {
-        type: actionTypes.SET_CURRENT_PAGE,
+        type: actionTypes.SET_TOTAL_USERS_COUNT,
         totalUsersCount
     }
 }
