@@ -27,7 +27,7 @@ function UserFollowContainer() {
 
     makeRequest().then(r => setTotalUsersCount(r.data.totalCount))
 
-    const totalPages = totalUsersCount / pageSize;
+    const totalPages = Math.ceil(totalUsersCount / pageSize);
 
     return (
         <UserFollow
