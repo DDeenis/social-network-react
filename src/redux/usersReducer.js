@@ -4,10 +4,11 @@ const initialState = {
     people: [],
     pageSize: 3,
     totalUsersCount: 0,
-    currentPage: 1
+    currentPage: 1,
+    isFetching: false,
 }
 
-function changeFollowState(state, userId, followed) {
+const changeFollowState = (state, userId, followed) => {
     const index = state.people.findIndex((p) => p.id === userId);
 
     if(index !== -1) {
@@ -17,18 +18,10 @@ function changeFollowState(state, userId, followed) {
     return state;
 }
 
-function setTotalUsersCount(state, totalUsersCount) {
-    return { ...state, totalUsersCount };
-}
-
-function setCurrentPage(state, currentPage) {
-    return { ...state, currentPage };
-}
-
-function setUsers(state, users) {
-    // return { ...state, people: [...state.people, ...users] };
-    return { ...state, people: [...users] };
-}
+const setTotalUsersCount = (state, totalUsersCount) => ({ ...state, totalUsersCount });
+const setCurrentPage = (state, currentPage) => ({ ...state, currentPage });
+const setFetchingStatus = (state, isFetching) => ({ ...state, isFetching });
+const setUsers = (state, users) => ({ ...state, people: [...users] });
 
 function usersReducer(state = initialState, action) {
     switch (action.type) {
@@ -46,6 +39,9 @@ function usersReducer(state = initialState, action) {
 
         case actionTypes.SET_CURRENT_PAGE:
             return setCurrentPage(state, action.currentPage);
+
+        case actionTypes.SET_FETCHING_STATUS:
+            return setFetchingStatus(state, action.isFetching);
     
         default:
             return state;

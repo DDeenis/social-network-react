@@ -4,7 +4,7 @@ import { followUserCreator, unfollowUserCreator } from '../../../redux/actionCre
 import UserFollowList from "./UserFollowList";
 
 function UserFollowListContainer() {
-    const users = useSelector(state => state.users.people);
+    const { people, isFetching } = useSelector(state => state.users);
     const dispatch = useDispatch();
 
     const followUser = (userId) => dispatch(followUserCreator(userId));
@@ -12,9 +12,10 @@ function UserFollowListContainer() {
 
     return (
         <UserFollowList
-            users={users}
+            users={people}
             followUser={followUser}
             unfollowUser={unfollowUser}
+            isFetching={isFetching}
         />
     );
 }

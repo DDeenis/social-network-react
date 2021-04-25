@@ -6,7 +6,6 @@ import styles from './UserFollow.module.css';
 class UserFollow extends React.PureComponent {
     constructor(props) {
         super(props);
-        this.state = {}
         this.pages = [];
     }
 
@@ -34,24 +33,5 @@ class UserFollow extends React.PureComponent {
         );
     }
 }
-
-// temporary unused (uncomment when refactoring to hooks)
-// function UserFollow({ onLoad, getUsers }) {
-//     useEffect(() => {
-//         onLoad();
-//     }, [])
-
-//     return (
-//         <div className={styles.wrapper}>
-//             <p className={styles.title}>Users</p>
-
-//             <section className={styles.followList}>
-//                 <UserFollowListContainer />
-//             </section>
-
-//             <button className={`btn ${styles.showMoreBtn}`} onClick={() => getUsers()}>Show more</button>
-//         </div>
-//     );
-// }
 
 export default UserFollow;
