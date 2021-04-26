@@ -8,7 +8,8 @@ export const actionTypes = Object.freeze({
     SET_USERS: 'SET_USERS',
     SET_TOTAL_USERS_COUNT: 'SET_TOTAL_USERS_COUNT',
     SET_CURRENT_PAGE: 'SET_CURRENT_PAGE',
-    SET_FETCHING_STATUS: 'SET_FETCHING_STATUS'
+    SET_FETCHING_STATUS: 'SET_FETCHING_STATUS',
+    SET_USER_PROFILE: 'SET_USER_PROFILE'
 });
 
 export const createPostCreator = () => ({ type: actionTypes.ADD_POST });
@@ -30,3 +31,5 @@ export const setCurrentPageCreator = (currentPage) => ({ type: actionTypes.SET_C
 export const setTotalUsersCountCreator = (totalUsersCount) => ({ type: actionTypes.SET_TOTAL_USERS_COUNT, totalUsersCount });
 
 export const setFetchingStatusCreator = (isFetching) => ({ type: actionTypes.SET_FETCHING_STATUS, isFetching });
+
+export const setUserProfileCreator = (profile) => ({ type: actionTypes.SET_USER_PROFILE, profile });

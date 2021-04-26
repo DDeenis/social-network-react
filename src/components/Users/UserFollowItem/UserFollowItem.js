@@ -1,20 +1,24 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import AvatarMock from '../../Dialogs/AvatarMock/AvatarMock';
 import Loader from '../../Loader/Loader';
+import LoaderCircle from '../../Loader/LoaderCircle';
 import styles from './UserFollowItem.module.css';
 
-function UserFollowItem({ user, followUser, unfollowUser, isFetching }) {
+function UserFollowItem({ user, followUser, unfollowUser, isFetching, userId }) {
     const changeFollowState = user.followed ? unfollowUser : followUser;
     const userPhoto = user.photos.small !== null ? <img src={user.photos.small} alt="user avatar" /> : <AvatarMock />
 
     return (
         <div className={styles.userInfo}>
             <div className={styles.userFollow}>
+                <NavLink to={`profile/${userId}`}>
                 {
                     isFetching ?
-                        <Loader /> :
+                        <LoaderCircle /> :
                         userPhoto
                 }
+                </NavLink>
                 <button className={`btn ${styles.followBtn}`} onClick={() => changeFollowState(user.id)}>{user.followed ? 'Unfollow' : 'Follow'}</button>
             </div>
 

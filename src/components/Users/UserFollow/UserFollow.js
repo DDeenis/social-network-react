@@ -13,7 +13,7 @@ class UserFollow extends React.PureComponent {
         this.props.onLoad();
 
         // this.props.totalPages
-        for (let i = 1; i <= 23; i++) {
+        for (let i = this.props.currentPage; i <= 23 + this.props.currentPage; i++) {
             this.pages.push(i);
         }
     }

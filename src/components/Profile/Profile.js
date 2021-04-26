@@ -3,12 +3,12 @@ import styles from './Profile.module.css';
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import PostsContainer from "./Posts/PostsContainer";
 
-function Profile() {
+function Profile({ user }) {
     return (
         <div className={styles.userProfile}>
             <div className={styles.userHeader}></div>
             <section className={styles.userInfo}>
-                <ProfileInfo name="Dmitry K." birthday="2 january" city="Minsk" education="BSU" website="https://it-kamasutra.com" />
+                <ProfileInfo name={user.fullName} aboutMe={user.aboutMe} photos={user.photos} />
                 <PostsContainer />
             </section>
         </div>

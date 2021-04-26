@@ -8,7 +8,8 @@ function Nav(props) {
         <nav>
             <ul className={styles.navItems}>
                 <li className={styles.navItem}>
-                    <NavLink to="/profile" activeClassName={styles.activeLink}>Profile</NavLink>
+                    {/* Put id of current user here */}
+                    <NavLink to={`/profile/16638`} activeClassName={styles.activeLink}>Profile</NavLink>
                 </li>
                 <li className={styles.navItem}>
                     <NavLink to="/dialogs" activeClassName={styles.activeLink}>Messages</NavLink>

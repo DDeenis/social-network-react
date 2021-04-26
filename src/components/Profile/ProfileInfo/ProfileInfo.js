@@ -1,17 +1,22 @@
-import React from 'react'
-import styles from './ProfileInfo.module.css'
-import UserLogo from '../../../assets/images/user-logo.jpeg';
+import React from 'react';
+import styles from './ProfileInfo.module.css';
+import AvatarMock from '../../Dialogs/AvatarMock/AvatarMock';
 
 function ProfileInfo(props) {
+    const avatar = props.photos?.small === null ? <AvatarMock size={150} /> : <img src={props.photos?.small} alt="avatar" className={styles.userLogo} />
+
     return (
         <div className={styles.userData}>
-            <img src={UserLogo} alt="user logo" className={styles.userLogo} />
+            {
+                avatar
+            }
+
             <div className={styles.personalInfo}>
                 <h2 className={styles.userName}>{props.name}</h2>
-                <p>Date of Birth: {props.birthday}</p>
-                <p>City: {props.city}</p>
-                <p>Education: {props.education} {'\''}11</p>
-                <p>Web Site: <a href="#" className={styles.activeLink}>{props.website}</a></p>
+                <p>Date of Birth: {props.birthday ?? 'not specified'}</p>
+                <p>City: {props.city ?? 'not specified'}</p>
+                <p>Education: {props.education ?? 'not specified'}</p>
+                <p>About Me: {props.aboutMe ?? 'not specified'}</p>
             </div>
         </div>
     );
