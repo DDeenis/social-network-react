@@ -1,0 +1,83 @@
+.authFormWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  height: 25vh;
+  margin: 100px;
+}
+
+.authDataWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.authDataLabel {
+  color: #47525E;
+  font-family: 'Roboto';
+  font-size: 26px;
+}
+
+.authData {
+  color: #929293;
+  font-family: 'Roboto';
+  font-size: 26px;
+  padding: 5px;
+  background-color: #fff;
+  width: 260px;
+  border: 0 solid;
+  border-radius: 10px;
+}
+
+.rememberMe {
+  width: 260px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.rememberMeText {
+  color: #47525E;
+  font-family: 'Roboto';
+  font-size: 20px;
+}
+
+.loginBtn {
+  color: #fff;
+  font-family: 'Roboto';
+  font-size: 26px;
+  width: 40%;
+  cursor: pointer;
+  margin: 15px 0;
+}
+/*# sourceMappingURL=AuthForm.module.css.map */

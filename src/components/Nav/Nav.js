@@ -21,7 +21,7 @@ function Nav(props) {
                     <NavLink to="/music" activeClassName={styles.activeLink}>Music</NavLink>
                 </li>
                 <li className={styles.navItem}>
-                    <NavLink to="/users" activeClassName={styles.activeLink}>Find users</NavLink>
+                    <NavLink to="/users/1" activeClassName={styles.activeLink}>Find users</NavLink>
                 </li>
                 <li className={styles.navItem}>
                     <a gref="/settings" activeClassName={styles.activeLink}>Settings</a>

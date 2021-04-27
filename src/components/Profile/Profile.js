@@ -8,7 +8,7 @@ function Profile({ user }) {
         <div className={styles.userProfile}>
             <div className={styles.userHeader}></div>
             <section className={styles.userInfo}>
-                <ProfileInfo name={user.fullName} aboutMe={user.aboutMe} photos={user.photos} />
+                <ProfileInfo user={user} />
                 <PostsContainer />
             </section>
         </div>

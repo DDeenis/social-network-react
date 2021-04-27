@@ -1,37 +1,40 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PagesBar from '../PagesBar/PagesBar';
 import UserFollowListContainer from '../UserFollowList/UserFollowListContainer';
 import styles from './UserFollow.module.css';
 
-class UserFollow extends React.PureComponent {
-    constructor(props) {
-        super(props);
-        this.pages = [];
-    }
+function UserFollow({ onLoad, getUsers, setCurrentPage, currentPage }) {
+    let pages = [];
 
-    componentDidMount() {
-        this.props.onLoad();
+    useEffect(() => {
+        onLoad();
 
-        // this.props.totalPages
-        for (let i = this.props.currentPage; i <= 23 + this.props.currentPage; i++) {
-            this.pages.push(i);
+        // totalPages
+        for (let i = currentPage; i <= 23 + currentPage; i++) {
+            pages.push(i);
         }
-    }
+    }, []);
 
-    render() {
-        return (
-            <div className={styles.wrapper}>
-                <p className={styles.title}>Users</p>
-    
-                <section className={styles.followList}>
-                    <UserFollowListContainer />
-                </section>
-    
-                <PagesBar pages={this.pages} currentPage={this.props.currentPage} getUsers={this.props.getUsers} setCurrentPage={this.props.setCurrentPage} />
-                <button className={`btn ${styles.showMoreBtn}`} onClick={() => this.props.getUsers()}>Show more</button>
-            </div>
-        );
-    }
+    useEffect(() => {
+        pages = [];
+
+        for (let i = currentPage; i <= 23 + currentPage; i++) {
+            pages.push(i);
+        }
+    }, [currentPage]);
+
+    return (
+        <div className={styles.wrapper}>
+            <p className={styles.title}>Users</p>
+
+            <section className={styles.followList}>
+                <UserFollowListContainer />
+            </section>
+
+            <PagesBar pages={pages} currentPage={currentPage} getUsers={getUsers} setCurrentPage={setCurrentPage} />
+            <button className={`btn ${styles.showMoreBtn}`} onClick={() => getUsers()}>Show more</button>
+        </div>
+    );
 }
 
 export default UserFollow;

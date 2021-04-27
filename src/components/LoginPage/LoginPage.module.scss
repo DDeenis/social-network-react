@@ -1,0 +1,28 @@
+.loginPage {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginOptions {
+    width: 40%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+.loginOptionsActive {
+    font-weight: 600;
+    background-color: #f2a154;
+}
+
+.loginOptionsBtn {
+    color: #fff;
+    font-family: 'Roboto';
+    font-size: 26px;
+    padding: 10px;
+    width: 40%;
+    cursor: pointer;
+}

@@ -2,8 +2,8 @@ import React from 'react';
 import styles from './ProfileInfo.module.css';
 import AvatarMock from '../../Dialogs/AvatarMock/AvatarMock';
 
-function ProfileInfo(props) {
-    const avatar = props.photos?.small === null ? <AvatarMock size={150} /> : <img src={props.photos?.small} alt="avatar" className={styles.userLogo} />
+function ProfileInfo({ user }) {
+    const avatar = user.photos?.large === null ? <AvatarMock size={150} /> : <img src={user.photos?.large} alt="avatar" className={styles.userLogo} />
 
     return (
         <div className={styles.userData}>
@@ -12,11 +12,11 @@ function ProfileInfo(props) {
             }
 
             <div className={styles.personalInfo}>
-                <h2 className={styles.userName}>{props.name}</h2>
-                <p>Date of Birth: {props.birthday ?? 'not specified'}</p>
-                <p>City: {props.city ?? 'not specified'}</p>
-                <p>Education: {props.education ?? 'not specified'}</p>
-                <p>About Me: {props.aboutMe ?? 'not specified'}</p>
+                <h2 className={styles.userName}>{user.fullName}</h2>
+                <p>{user.lookingForAJob ? 'Is' : 'Not'} looking for a job</p>
+                <p>Job description: {user.lookingForAJobDescription ?? 'not specified'}</p>
+                <p>Facebook: {user.contacts.facebook ?? 'not specified'}</p>
+                <p>About Me: {user.aboutMe ?? 'not specified'}</p>
             </div>
         </div>
     );

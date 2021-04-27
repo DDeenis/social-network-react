@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import styles from './PageItem.module.css';
 
 function PageItem({ number, isCurrent, getUsers, setCurrentPage }) {
@@ -8,7 +9,11 @@ function PageItem({ number, isCurrent, getUsers, setCurrentPage }) {
     };
 
     return (
-        <div className={isCurrent ? styles.pageItemActive : styles.pageItem} onClick={() => showUsersOnPage()}>{ number }</div>
+        <NavLink to={`users/${number}`} className={styles.pageLink}>
+            <div className={isCurrent ? styles.pageItemActive : styles.pageItem} onClick={() => showUsersOnPage()}>
+                { number }
+            </div>
+        </NavLink>
     );
 }
 

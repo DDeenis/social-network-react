@@ -6,7 +6,6 @@ function UserFollowList({ users, followUser, unfollowUser, isFetching }) {
     const usersFollowList = users.map(
         u => <UserFollowItem 
                 key={u.id} 
-                userId={u.id}
                 user={u}
                 followUser={followUser}
                 unfollowUser={unfollowUser}

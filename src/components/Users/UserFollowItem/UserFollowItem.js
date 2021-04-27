@@ -5,14 +5,14 @@ import Loader from '../../Loader/Loader';
 import LoaderCircle from '../../Loader/LoaderCircle';
 import styles from './UserFollowItem.module.css';
 
-function UserFollowItem({ user, followUser, unfollowUser, isFetching, userId }) {
+function UserFollowItem({ user, followUser, unfollowUser, isFetching }) {
     const changeFollowState = user.followed ? unfollowUser : followUser;
     const userPhoto = user.photos.small !== null ? <img src={user.photos.small} alt="user avatar" /> : <AvatarMock />
 
     return (
         <div className={styles.userInfo}>
             <div className={styles.userFollow}>
-                <NavLink to={`profile/${userId}`}>
+                <NavLink to={`profile/${user.id}`}>
                 {
                     isFetching ?
                         <LoaderCircle /> :
