@@ -3,13 +3,12 @@ import { NavLink } from 'react-router-dom';
 import FriendsOnline from './FriendsOnline/FriendsOnline';
 import styles from './Nav.module.css'
 
-function Nav(props) {
+function Nav({ people, userId }) {
     return (
         <nav>
             <ul className={styles.navItems}>
                 <li className={styles.navItem}>
-                    {/* Put id of current user here */}
-                    <NavLink to={`/profile/16638`} activeClassName={styles.activeLink}>Profile</NavLink>
+                    <NavLink to={`/profile/${userId}`} activeClassName={styles.activeLink}>Profile</NavLink>
                 </li>
                 <li className={styles.navItem}>
                     <NavLink to="/dialogs" activeClassName={styles.activeLink}>Messages</NavLink>
@@ -30,7 +29,7 @@ function Nav(props) {
 
             <div className={styles.friendsOnline}>
                 <h3 className={styles.friendsOnlineTitle}>Friends</h3>
-                <FriendsOnline people={props.state.people} />
+                <FriendsOnline people={people} />
             </div>
         </nav>
     );

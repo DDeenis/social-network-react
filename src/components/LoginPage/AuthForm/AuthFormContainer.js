@@ -10,7 +10,9 @@ function AuthFormContainer() {
 
     const authUser = (email, password, remember = false) => 
         axios.post(`https://social-network.samuraijs.com/api/1.0/auth/login?email=${email}&password=${password}&rememberMe=${remember}`)
-             .then(r => setUserId(r.data.data.userId));
+             .then(r => {
+                 if(r.data.resultCode === 0) setUserId(r.data.data.userId)
+             });
 
     const setUserEmail = (email) => dispatch(setUserEmailCreator(email));
     const setUserPassword = (password) => dispatch(setUserPasswordCreator(password));

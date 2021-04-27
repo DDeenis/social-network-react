@@ -4,7 +4,8 @@ import UserFollowListContainer from '../UserFollowList/UserFollowListContainer';
 import styles from './UserFollow.module.css';
 
 function UserFollow({ onLoad, getUsers, setCurrentPage, currentPage }) {
-    let pages = [];
+    // const pages = [];
+    const pages = [...Array(24).keys()].slice(1);
 
     useEffect(() => {
         onLoad();
@@ -14,14 +15,6 @@ function UserFollow({ onLoad, getUsers, setCurrentPage, currentPage }) {
             pages.push(i);
         }
     }, []);
-
-    useEffect(() => {
-        pages = [];
-
-        for (let i = currentPage; i <= 23 + currentPage; i++) {
-            pages.push(i);
-        }
-    }, [currentPage]);
 
     return (
         <div className={styles.wrapper}>

@@ -2,22 +2,19 @@ import React from 'react'
 import { Redirect, Route, Switch } from 'react-router-dom';
 import './App.css';
 import Dialogs from './components/Dialogs/Dialogs';
-// import Profile from './components/Profile/Profile'
 import Header from './components/Header/Header';
-import Nav from './components/Nav/Nav';
 import Users from './components/Users/Users';
 import ProfileContainer from './components/Profile/ProfileContainer';
 import LoginPage from './components/LoginPage/LoginPage';
+import NavContainer from './components/Nav/NavContainer';
 
-function App(props) {
-  const state = props.store.getState();
-
+function App() {
   return (
     <div className="App">
       <Header />
       <main>
         <aside>
-          <Nav state={state.sidebar} />
+          <NavContainer />
         </aside>
         <div className="app-wapper-content">
           <Switch>

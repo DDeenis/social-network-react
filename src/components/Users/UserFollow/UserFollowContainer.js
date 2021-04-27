@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCurrentPageCreator, setTotalUsersCountCreator, setUsersCreator, setFetchingStatusCreator } from '../../../redux/actionCreators';
@@ -14,6 +14,8 @@ function UserFollowContainer() {
 
     const makeRequest = (page = 1) => axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${page}&count=${pageSize}`);
 
+    useEffect(() => makeRequest().then(r => setTotalUsersCount(r.data.totalCount)), []);
+
     const getUsers = (page = 1) => {
         setFetchingStatus(true);
         makeRequest(page, pageSize).then(r => setUsers(r.data.items)).then(() => setFetchingStatus(false));
@@ -26,8 +28,6 @@ function UserFollowContainer() {
             getUsers();
         }
     }
-
-    makeRequest().then(r => setTotalUsersCount(r.data.totalCount))
 
     const totalPages = Math.ceil(totalUsersCount / pageSize);
 
