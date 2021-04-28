@@ -12,7 +12,7 @@ function UserFollowContainer() {
     const setTotalUsersCount = (totalUsersCount) => dispatch(setTotalUsersCountCreator(totalUsersCount));
     const setFetchingStatus = (isFetching) => dispatch(setFetchingStatusCreator(isFetching));
 
-    const makeRequest = (page = 1) => axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${page}&count=${pageSize}`);
+    const makeRequest = (page = 1) => axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${page}&count=${pageSize}`, { withCredentials: true });
 
     useEffect(() => makeRequest().then(r => setTotalUsersCount(r.data.totalCount)), []);
 
