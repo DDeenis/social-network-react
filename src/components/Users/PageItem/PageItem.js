@@ -9,7 +9,7 @@ function PageItem({ number, isCurrent, getUsers, setCurrentPage }) {
     };
 
     return (
-        <NavLink to={`users/${number}`} className={styles.pageLink}>
+        <NavLink to={`/users/${number}`} className={styles.pageLink}>
             <div className={isCurrent ? styles.pageItemActive : styles.pageItem} onClick={() => showUsersOnPage()}>
                 { number }
             </div>

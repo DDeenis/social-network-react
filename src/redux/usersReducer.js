@@ -6,6 +6,8 @@ const initialState = {
     totalUsersCount: 0,
     currentPage: 1,
     isFetching: false,
+    // isLoading: false
+    followingInProgress: []
 }
 
 const changeFollowState = (state, userId, followed) => {
@@ -18,6 +20,10 @@ const changeFollowState = (state, userId, followed) => {
     return state;
 }
 
+const setFollowingInProgress = (state, id, isFollowingInProgress) => 
+    isFollowingInProgress ? 
+    ({ ...state, followingInProgress: [...state.followingInProgress, id] }) : 
+    ({ ...state, followingInProgress: state.followingInProgress.filter(p => p.id != id) });
 const setTotalUsersCount = (state, totalUsersCount) => ({ ...state, totalUsersCount });
 const setCurrentPage = (state, currentPage) => ({ ...state, currentPage });
 const setFetchingStatus = (state, isFetching) => ({ ...state, isFetching });
@@ -42,6 +48,9 @@ function usersReducer(state = initialState, action) {
 
         case actionTypes.SET_FETCHING_STATUS:
             return setFetchingStatus(state, action.isFetching);
+        
+        case actionTypes.SET_IS_FOLLOWING_IN_PROGRESS:
+            return setFollowingInProgress(state, action.id, action.isFollowingInProgress);
     
         default:
             return state;

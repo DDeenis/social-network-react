@@ -3,7 +3,7 @@ import ChatMessage from '../ChatMessage/ChatMessage'
 import styles from './Chat.module.css'
 
 function Chat(props) {
-    const chatMessagesList = props.messages.map(m => <ChatMessage userName={m.name} content={m.message} key={m.message.charCodeAt(0) + m.name.charCodeAt(1)} />);
+    const chatMessagesList = props.messages.map((m, i) => <ChatMessage userName={m.name} content={m.message} key={i} />);
 
     return (
         <div className={styles.chat}>

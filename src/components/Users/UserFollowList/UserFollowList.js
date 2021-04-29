@@ -2,7 +2,7 @@ import React from 'react';
 import UserFollowItem from '../UserFollowItem/UserFollowItem';
 import styles from './UserFollowList.module.css';
 
-function UserFollowList({ users, followUser, unfollowUser, isFetching }) {
+function UserFollowList({ users, followUser, unfollowUser, isFetching, followingInProgress }) {
     const usersFollowList = users.map(
         u => <UserFollowItem 
                 key={u.id} 
@@ -10,6 +10,7 @@ function UserFollowList({ users, followUser, unfollowUser, isFetching }) {
                 followUser={followUser}
                 unfollowUser={unfollowUser}
                 isFetching={isFetching}
+                isLoading={followingInProgress.includes(u.id)}
             />
     );
 

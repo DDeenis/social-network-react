@@ -1,18 +1,18 @@
 import React from 'react';
 import AuthForm from './AuthForm';
-import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { setUserEmailCreator, setUserPasswordCreator, setRememberMeCreator, setUserIdCreator } from '../../../redux/actionCreators';
+import userApi from '../../../api/api';
 
 function AuthFormContainer() {
     const { data, userId } = useSelector(state => state.login);
     const dispatch = useDispatch();
-
-    const authUser = (email, password, remember = false) => 
-        axios.post(`https://social-network.samuraijs.com/api/1.0/auth/login?email=${email}&password=${password}&rememberMe=${remember}`)
-             .then(r => {
-                 if(r.data.resultCode === 0) setUserId(r.data.data.userId)
-             });
+    
+    const loginUser = (email, password, remember = false) => {
+        userApi.authUser(email, password, remember).then(r => {
+            if(r.resultCode === 0) setUserId(r.data.userId)
+        });
+    }
 
     const setUserEmail = (email) => dispatch(setUserEmailCreator(email));
     const setUserPassword = (password) => dispatch(setUserPasswordCreator(password));
@@ -21,7 +21,7 @@ function AuthFormContainer() {
 
     return (
         <AuthForm
-            authUser={authUser}
+            loginUser={loginUser}
             setUserEmail={setUserEmail}
             setUserPassword={setUserPassword}
             setRememberMe={setRememberMe}

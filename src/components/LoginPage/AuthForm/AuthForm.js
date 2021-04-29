@@ -2,9 +2,8 @@ import React from 'react';
 import { Redirect } from 'react-router';
 import styles from './AuthForm.module.css';
 
-function AuthForm({ authUser, setUserEmail, setUserPassword, setRememberMe, data, userId }) {
-    const login = () => authUser(data.email, data.password, data.rememberMe);
-    console.log(userId)
+function AuthForm({ loginUser, setUserEmail, setUserPassword, setRememberMe, data, userId }) {
+    const login = () => loginUser(data.email, data.password, data.rememberMe);
 
     return (
         <div className={styles.authFormWrapper}>

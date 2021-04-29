@@ -13,7 +13,8 @@ export const actionTypes = Object.freeze({
     SET_USER_EMAIL: 'SET_USER_EMAIL',
     SET_USER_PASSWORD: 'SET_USER_PASSWORD',
     SET_REMEMBER_ME: 'SET_REMEMBER_ME',
-    SET_USER_ID: 'SET_USER_ID'
+    SET_USER_ID: 'SET_USER_ID',
+    SET_IS_FOLLOWING_IN_PROGRESS: 'SET_IS_FOLLOWING_IN_PROGRESS',
 });
 
 export const createPostCreator = () => ({ type: actionTypes.ADD_POST });
@@ -45,3 +46,5 @@ export const setUserPasswordCreator = (password) => ({ type: actionTypes.SET_USE
 export const setRememberMeCreator = (rememberMe) => ({ type: actionTypes.SET_REMEMBER_ME, rememberMe });
 
 export const setUserIdCreator = (userId) => ({ type: actionTypes.SET_USER_ID, userId });
+
+export const setFollowingInProgressCreator = (id, isFollowingInProgress) => ({ type: actionTypes.SET_IS_FOLLOWING_IN_PROGRESS, id, isFollowingInProgress });
