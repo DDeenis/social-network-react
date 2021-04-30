@@ -3,17 +3,9 @@ import PagesBar from '../PagesBar/PagesBar';
 import UserFollowListContainer from '../UserFollowList/UserFollowListContainer';
 import styles from './UserFollow.module.css';
 
-function UserFollow({ onLoad, getUsers, setCurrentPage, currentPage }) {
-    // const pages = [];
-    const pages = [...Array(24).keys()].slice(1);
-
+function UserFollow({ onLoad, getUsers, setCurrentPage, currentPage, pages }) {
     useEffect(() => {
         onLoad();
-
-        // totalPages
-        for (let i = currentPage; i <= 23 + currentPage; i++) {
-            pages.push(i);
-        }
     }, []);
 
     return (

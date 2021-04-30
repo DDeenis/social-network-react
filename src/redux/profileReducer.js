@@ -6,7 +6,8 @@ const initialState = {
         { content: 'It\'s our new program! Hey!', likes: 100, views: 5 }
     ],
     postInput: '',
-    profile: null
+    profile: null,
+    watchedProfile: null
 };
 
 const addPost = (state) => {
@@ -18,6 +19,8 @@ const updatePostInput = (state, text) => ({ ...state, postInput: text });
 
 const setUserProfile = (state, profile) => ({ ...state, profile });
 
+const setWatchedProfile = (state, watchedProfile) => ({ ...state, watchedProfile });
+
 function profileReducer(state = initialState, action) {
     switch (action.type) {
         case actionTypes.ADD_POST:
@@ -28,6 +31,9 @@ function profileReducer(state = initialState, action) {
 
         case actionTypes.SET_USER_PROFILE:
             return setUserProfile(state, action.profile);
+
+        case actionTypes.SET_WATCHED_PROFILE:
+            return setWatchedProfile(state, action.watchedProfile);
 
         default:
             break;

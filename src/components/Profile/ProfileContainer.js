@@ -1,23 +1,25 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import Profile from './Profile';
 import { useParams } from 'react-router';
 import Loader from '../Loader/Loader';
-import userApi from '../../api/api';
+import { setWatchedProfileThunkCreator } from '../../redux/thunkCreators';
+import { useDispatch, useSelector } from 'react-redux';
 
 function ProfileContainer() {
-    const [user, setUser] = useState(null);
+    const { watchedProfile } = useSelector(state => state.profile);
+    const dispatch = useDispatch();
     const { id } = useParams();
     
     useEffect(() => {
-        userApi.getProfileInfo(id).then(r => setUser(r));
+        dispatch(setWatchedProfileThunkCreator(id));
     }, []);
 
     return (
         <>
         {
-            user !== null ?
+            watchedProfile !== null ?
             <Profile
-                user={user}
+                user={watchedProfile}
             /> :
             <Loader />
         }

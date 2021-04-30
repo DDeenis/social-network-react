@@ -1,5 +1,5 @@
 import userApi from "../api/api";
-import { followUserCreator, setFetchingStatusCreator, setFollowingInProgressCreator, setTotalUsersCountCreator, setUserIdCreator, setUsersCreator, unfollowUserCreator } from "./actionCreators";
+import { followUserCreator, setFetchingStatusCreator, setFollowingInProgressCreator, setTotalUsersCountCreator, setUserIdCreator, setUsersCreator, setWatchedProfileCreator, unfollowUserCreator } from "./actionCreators";
 
 export const setUsersThunkCreator = (page, pageSize) => (dispatch) => {
     dispatch(setFetchingStatusCreator(true));
@@ -36,5 +36,11 @@ export const authUserThunkCreator = (email, password, remember = false) => (disp
         .then(r => {
             if(r.resultCode === 0) dispatch(setUserIdCreator(r.data.userId));
         })
+        .catch(r => console.log(r));
+}
+
+export const setWatchedProfileThunkCreator = (id) => (dispatch) => {
+    userApi.getProfileInfo(id)
+        .then(r => dispatch(setWatchedProfileCreator(r)))
         .catch(r => console.log(r));
 }

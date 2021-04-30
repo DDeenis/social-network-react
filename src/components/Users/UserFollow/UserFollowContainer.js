@@ -21,6 +21,16 @@ function UserFollowContainer() {
     }
 
     const totalPages = Math.ceil(totalUsersCount / pageSize);
+    const pageItemsCount = 22;
+    const halfPage = Math.ceil(pageItemsCount / 2);
+    const possibleEndIndex = halfPage + currentPage;
+    const startIndex = currentPage - halfPage > 0 ? currentPage - halfPage : Math.ceil(currentPage / 2);
+    const endIndex = possibleEndIndex >= pageItemsCount ? possibleEndIndex : possibleEndIndex + (pageItemsCount - possibleEndIndex);
+    const pages = [];
+
+    for (let i = startIndex; i <= endIndex; i++) {
+        pages.push(i);
+    }
 
     return (
         <UserFollow
@@ -29,6 +39,7 @@ function UserFollowContainer() {
             setCurrentPage={setCurrentPage}
             totalPages={totalPages}
             currentPage={currentPage}
+            pages={pages}
         />
     );
 }
