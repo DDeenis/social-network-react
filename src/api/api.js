@@ -17,6 +17,9 @@ const getUsers = (page = 1, pageSize = 3) =>
 const getMe = () => 
     axiosInstance.get(`me`).then(r => r.data);
 
+const getProfileInfo = (id) =>
+    axiosInstance.get(`profile/${id}`).then(r => r.data);
+
 const followUser = (userId) => 
     axiosInstance.post(`follow/${userId}`).then(r => r.data);
 
@@ -31,7 +34,8 @@ const userApi = {
     followUser,
     unfollowUser,
     authUser,
-    getMe
+    getMe,
+    getProfileInfo
 };
 
 export default userApi;
