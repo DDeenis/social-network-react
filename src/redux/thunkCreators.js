@@ -1,5 +1,17 @@
 import userApi from "../api/api";
-import { followUserCreator, setFetchingStatusCreator, setFollowingInProgressCreator, setTotalUsersCountCreator, setUserIdCreator, setUsersCreator, setWatchedProfileCreator, unfollowUserCreator } from "./actionCreators";
+import { 
+    followUserCreator, 
+    setFetchingStatusCreator, 
+    setFollowingInProgressCreator, 
+    setIsAuthCreator,
+    setTotalUsersCountCreator, 
+    setUserEmailCreator, 
+    setUserIdCreator, 
+    setUserLoginCreator, 
+    setUsersCreator, 
+    setWatchedProfileCreator, 
+    unfollowUserCreator 
+} from "./actionCreators";
 
 export const setUsersThunkCreator = (page, pageSize) => (dispatch) => {
     dispatch(setFetchingStatusCreator(true));
@@ -34,7 +46,23 @@ export const unfollowUserThunkCreator = (userId) => (dispatch) => {
 export const authUserThunkCreator = (email, password, remember = false) => (dispatch) => {
     userApi.authUser(email, password, remember)
         .then(r => {
-            if(r.resultCode === 0) dispatch(setUserIdCreator(r.data.userId));
+            if(r.resultCode === 0) {
+                dispatch(setUserIdCreator(r.data.userId));
+                dispatch(setIsAuthCreator(true));
+            }
+        })
+        .catch(r => console.log(r));
+}
+
+export const getMeThunkCreator = () => (dispatch) => {
+    userApi.getMe()
+        .then(r => {
+            if(r.resultCode === 0) {
+                dispatch(setUserIdCreator(r.data.id));
+                dispatch(setUserEmailCreator(r.data.email));
+                dispatch(setUserLoginCreator(r.data.login));
+                dispatch(setIsAuthCreator(true));
+            }
         })
         .catch(r => console.log(r));
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './ProfileInfo.module.css';
 import AvatarMock from '../../Dialogs/AvatarMock/AvatarMock';
+import ProfileStatusContainer from './ProfileStatus/ProfileStatusContainer';
 
 function ProfileInfo({ user }) {
     const avatar = user.photos?.large === null ? <AvatarMock size={150} /> : <img src={user.photos?.large} alt="avatar" className={styles.userLogo} />
@@ -17,6 +18,7 @@ function ProfileInfo({ user }) {
                 <p>Job description: {user.lookingForAJobDescription ?? 'not specified'}</p>
                 <p>Facebook: {user.contacts.facebook ?? 'not specified'}</p>
                 <p>About Me: {user.aboutMe ?? 'not specified'}</p>
+                <ProfileStatusContainer />
             </div>
         </div>
     );

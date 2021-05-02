@@ -3,6 +3,25 @@ header {
   background: #222831;
   border: 0px solid;
   border-radius: 12px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.headerAuthText {
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
 }
 
 .headerLogo {

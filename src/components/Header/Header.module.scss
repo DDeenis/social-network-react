@@ -3,6 +3,16 @@ header {
     background: #222831;
     border: 0px solid;
     border-radius: 12px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.headerAuthText {
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
 }
 
 .headerLogo {

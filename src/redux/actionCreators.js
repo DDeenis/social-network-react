@@ -15,7 +15,9 @@ export const actionTypes = Object.freeze({
     SET_REMEMBER_ME: 'SET_REMEMBER_ME',
     SET_USER_ID: 'SET_USER_ID',
     SET_IS_FOLLOWING_IN_PROGRESS: 'SET_IS_FOLLOWING_IN_PROGRESS',
-    SET_WATCHED_PROFILE: 'SET_WATCHED_PROFILE'
+    SET_WATCHED_PROFILE: 'SET_WATCHED_PROFILE',
+    SET_IS_AUTH: 'SET_IS_AUTH',
+    SET_USER_LOGIN: 'SET_USER_LOGIN'
 });
 
 export const createPostCreator = () => ({ type: actionTypes.ADD_POST });
@@ -51,3 +53,7 @@ export const setUserIdCreator = (userId) => ({ type: actionTypes.SET_USER_ID, us
 export const setFollowingInProgressCreator = (id, isFollowingInProgress) => ({ type: actionTypes.SET_IS_FOLLOWING_IN_PROGRESS, id, isFollowingInProgress });
 
 export const setWatchedProfileCreator = (watchedProfile) => ({ type: actionTypes.SET_WATCHED_PROFILE, watchedProfile });
+
+export const setIsAuthCreator = (isAuth) => ({ type: actionTypes.SET_IS_AUTH, isAuth });
+
+export const setUserLoginCreator = (login) => ({ type: actionTypes.SET_USER_LOGIN, login });

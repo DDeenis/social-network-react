@@ -15,7 +15,7 @@ const getUsers = (page = 1, pageSize = 3) =>
     axiosInstance.get(`users?page=${page}&count=${pageSize}`).then(r => r.data);
 
 const getMe = () => 
-    axiosInstance.get(`me`).then(r => r.data);
+    axiosInstance.get(`auth/me`).then(r => r.data);
 
 const getProfileInfo = (id) =>
     axiosInstance.get(`profile/${id}`).then(r => r.data);

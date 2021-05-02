@@ -6,6 +6,7 @@ import UserFollow from './UserFollow';
 
 function UserFollowContainer() {
     const { people, pageSize, totalUsersCount, currentPage } = useSelector(state => state.users);
+    const { isAuth } = useSelector(state => state.login);
     const dispatch = useDispatch();
 
     const getUsers = (page = currentPage) => {
@@ -40,6 +41,7 @@ function UserFollowContainer() {
             totalPages={totalPages}
             currentPage={currentPage}
             pages={pages}
+            isAuth={isAuth}
         />
     );
 }
