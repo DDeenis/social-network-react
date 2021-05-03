@@ -9,6 +9,7 @@ import {
     setUserIdCreator, 
     setUserLoginCreator, 
     setUsersCreator, 
+    setUserStatusCreator, 
     setWatchedProfileCreator, 
     unfollowUserCreator 
 } from "./actionCreators";
@@ -70,5 +71,17 @@ export const getMeThunkCreator = () => (dispatch) => {
 export const setWatchedProfileThunkCreator = (id) => (dispatch) => {
     userApi.getProfileInfo(id)
         .then(r => dispatch(setWatchedProfileCreator(r)))
+        .catch(r => console.log(r));
+}
+
+export const getUserStatusThunkCreator = (userId) => (dispatch) => {
+    userApi.getUserStatus(userId)
+        .then(r => dispatch(setUserStatusCreator(r)))
+        .catch(r => console.log(r));
+}
+
+export const updateUserStatusThunkCreator = (statusText) => (dispatch) => {
+    userApi.updateUserStatus(statusText)
+        .then(() => dispatch(setUserStatusCreator(statusText)))
         .catch(r => console.log(r));
 }

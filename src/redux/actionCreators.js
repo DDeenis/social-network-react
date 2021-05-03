@@ -17,7 +17,8 @@ export const actionTypes = Object.freeze({
     SET_IS_FOLLOWING_IN_PROGRESS: 'SET_IS_FOLLOWING_IN_PROGRESS',
     SET_WATCHED_PROFILE: 'SET_WATCHED_PROFILE',
     SET_IS_AUTH: 'SET_IS_AUTH',
-    SET_USER_LOGIN: 'SET_USER_LOGIN'
+    SET_USER_LOGIN: 'SET_USER_LOGIN',
+    SET_USER_STATUS: 'SET_USER_STATUS'
 });
 
 export const createPostCreator = () => ({ type: actionTypes.ADD_POST });
@@ -57,3 +58,5 @@ export const setWatchedProfileCreator = (watchedProfile) => ({ type: actionTypes
 export const setIsAuthCreator = (isAuth) => ({ type: actionTypes.SET_IS_AUTH, isAuth });
 
 export const setUserLoginCreator = (login) => ({ type: actionTypes.SET_USER_LOGIN, login });
+
+export const setUserStatusCreator = (status) => ({ type: actionTypes.SET_USER_STATUS, userStatus: status });
