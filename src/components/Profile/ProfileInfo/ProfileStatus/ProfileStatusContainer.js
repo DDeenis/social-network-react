@@ -7,9 +7,11 @@ import ProfileStatus from './ProfileStatus';
 
 function ProfileStatusContainer() {
     const { userStatus } = useSelector(state => state.profile);
+    const { userId: myId } = useSelector(state => state.login);
     const dispath = useDispatch();
 
     const { id } = useParams();
+    const isEditable = parseInt(id) === myId;
 
     const setStatus = (statusText) => dispath(setUserStatusCreator(statusText));
 
@@ -28,6 +30,7 @@ function ProfileStatusContainer() {
             setIsEditing={setIsEditing}
             setStatus={setStatus}
             updateStatus={updateStatus}
+            isEditable={isEditable}
         />
     );
 }

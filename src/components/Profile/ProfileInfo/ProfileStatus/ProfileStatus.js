@@ -1,10 +1,12 @@
 import React from 'react';
 import styles from './ProfileStatus.module.css';
 
-function ProfileStatus({ statusText, isEditing, setStatus, setIsEditing, updateStatus }) {
+function ProfileStatus({ statusText, isEditing, setStatus, setIsEditing, updateStatus, isEditable }) {
     const onBlur = () => {
-        updateStatus(statusText);
-        setIsEditing(false);
+        if(isEditable) {
+            updateStatus(statusText.slice(0, 300));
+            setIsEditing(false);
+        }
     }
 
     return (
@@ -14,7 +16,7 @@ function ProfileStatus({ statusText, isEditing, setStatus, setIsEditing, updateS
                 <p className={styles.status} onDoubleClick={() => setIsEditing(true)}>Status: { statusText || 'not specified' }</p> :
                 <>
                     <p className={styles.status}>State: </p>
-                    <input className={styles.status} value={statusText} autoFocus onChange={(e) => setStatus(e.target.value)} onBlur={() => onBlur()} />
+                    <input className={styles.status} value={statusText} autoFocus disabled={!isEditable} onChange={(e) => setStatus(e.target.value)} onBlur={() => onBlur()} />
                 </>
             }
         </div>
