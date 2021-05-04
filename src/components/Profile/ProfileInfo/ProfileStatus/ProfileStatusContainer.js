@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router';
-import { setUserStatusCreator } from '../../../../redux/actionCreators';
 import { getUserStatusThunkCreator, updateUserStatusThunkCreator } from '../../../../redux/thunkCreators';
 import ProfileStatus from './ProfileStatus';
 
@@ -13,9 +12,12 @@ function ProfileStatusContainer() {
     const { id } = useParams();
     const isEditable = parseInt(id) === myId;
 
-    const setStatus = (statusText) => dispath(setUserStatusCreator(statusText));
-
+    const [status, setStatus] = useState(userStatus);
     const [isEditing, setIsEditing] = useState(false);
+
+    useEffect(() => {
+            setStatus(userStatus);
+    }, [userStatus]);
 
     useEffect(() => {
         dispath(getUserStatusThunkCreator(id));
@@ -25,7 +27,7 @@ function ProfileStatusContainer() {
 
     return (
         <ProfileStatus
-            statusText={userStatus}
+            statusText={status}
             isEditing={isEditing}
             setIsEditing={setIsEditing}
             setStatus={setStatus}

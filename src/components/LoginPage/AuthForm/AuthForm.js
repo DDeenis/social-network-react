@@ -1,36 +1,35 @@
 import React from 'react';
 import { Redirect } from 'react-router';
 import styles from './AuthForm.module.css';
+import { Field } from "redux-form";
 
-function AuthForm({ loginUser, setUserEmail, setUserPassword, setRememberMe, data, userId }) {
-    const login = () => loginUser(data.email, data.password, data.rememberMe);
-
+function AuthForm(props) {
     return (
-        <div className={styles.authFormWrapper}>
+        <form className={styles.authFormWrapper} onSubmit={props.handleSubmit}>
             <div className={styles.authDataWrapper}>
                 <label htmlFor='email' className={styles.authDataLabel}>Email</label>
-                <input type='text' id='email' placeholder='Email' className={styles.authData} value={data.email} onChange={(e) => setUserEmail(e.target.value)} />
+                <Field component='input' type='text' id='email' placeholder='Email' className={styles.authData} name='email' />
             </div>
 
             <div className={styles.authDataWrapper}>
                 <label htmlFor='password' className={styles.authDataLabel}>Password</label>
-                <input type='password' id='password' placeholder='Password' className={styles.authData} value={data.password} onChange={(e) => setUserPassword(e.target.value)} />
+                <Field component='input' type='password' id='password' placeholder='Password' className={styles.authData} name='password' />
             </div>
 
             <div className={styles.loginControls}>
                 <div className={styles.rememberMe}>
                     <label htmlFor='remember-me' className={styles.rememberMeText}>Remember me</label>
-                    <input type='checkbox' id='remember-me' className={styles.rememberMeCheckbox} checked={data.rememberMe} onChange={(e) => setRememberMe(e.target.checked)} />
+                    <Field component='input' type='checkbox' id='remember-me' className={styles.rememberMeCheckbox} name='rememberMe' />
                 </div>
 
-                <button className={`btn ${styles.loginBtn}`} onClick={() => login()}>Login</button>
+                <button className={`btn ${styles.loginBtn}`} type='submit'>Login</button>
 
                 {
-                    userId ?
-                    <Redirect to={`/profile/${userId}`} /> : <></>
+                    props.userId ?
+                    <Redirect to={`/profile/${props.userId}`} /> : <></>
                 }
             </div>
-        </div>
+        </form>
     );
 }
 

@@ -10,9 +10,6 @@ export const actionTypes = Object.freeze({
     SET_CURRENT_PAGE: 'SET_CURRENT_PAGE',
     SET_FETCHING_STATUS: 'SET_FETCHING_STATUS',
     SET_USER_PROFILE: 'SET_USER_PROFILE',
-    SET_USER_EMAIL: 'SET_USER_EMAIL',
-    SET_USER_PASSWORD: 'SET_USER_PASSWORD',
-    SET_REMEMBER_ME: 'SET_REMEMBER_ME',
     SET_USER_ID: 'SET_USER_ID',
     SET_IS_FOLLOWING_IN_PROGRESS: 'SET_IS_FOLLOWING_IN_PROGRESS',
     SET_WATCHED_PROFILE: 'SET_WATCHED_PROFILE',
@@ -42,12 +39,6 @@ export const setTotalUsersCountCreator = (totalUsersCount) => ({ type: actionTyp
 export const setFetchingStatusCreator = (isFetching) => ({ type: actionTypes.SET_FETCHING_STATUS, isFetching });
 
 export const setUserProfileCreator = (profile) => ({ type: actionTypes.SET_USER_PROFILE, profile });
-
-export const setUserEmailCreator = (email) => ({ type: actionTypes.SET_USER_EMAIL, email });
-
-export const setUserPasswordCreator = (password) => ({ type: actionTypes.SET_USER_PASSWORD, password });
-
-export const setRememberMeCreator = (rememberMe) => ({ type: actionTypes.SET_REMEMBER_ME, rememberMe });
 
 export const setUserIdCreator = (userId) => ({ type: actionTypes.SET_USER_ID, userId });
 

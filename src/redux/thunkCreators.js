@@ -4,8 +4,7 @@ import {
     setFetchingStatusCreator, 
     setFollowingInProgressCreator, 
     setIsAuthCreator,
-    setTotalUsersCountCreator, 
-    setUserEmailCreator, 
+    setTotalUsersCountCreator,
     setUserIdCreator, 
     setUserLoginCreator, 
     setUsersCreator, 
@@ -60,7 +59,6 @@ export const getMeThunkCreator = () => (dispatch) => {
         .then(r => {
             if(r.resultCode === 0) {
                 dispatch(setUserIdCreator(r.data.id));
-                dispatch(setUserEmailCreator(r.data.email));
                 dispatch(setUserLoginCreator(r.data.login));
                 dispatch(setIsAuthCreator(true));
             }
