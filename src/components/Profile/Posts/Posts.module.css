@@ -2,48 +2,6 @@
   width: 80%;
 }
 
-.newPost {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column wrap;
-          flex-flow: column wrap;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-}
-
-.newPost h2 {
-  color: #47525E;
-}
-
-.postInput {
-  padding: 10px;
-  width: 100%;
-  min-height: 80px;
-  background-color: #E6EEEA;
-  border: 0 solid;
-  resize: none;
-}
-
-.newPostBtn {
-  color: #FFFFFF;
-  font-size: 20px;
-  width: 130px;
-  margin: 10px;
-  padding: 5px;
-  text-align: left;
-  -ms-flex-item-align: end;
-      align-self: flex-end;
-  border: 0 solid;
-  cursor: pointer;
-}
-
 .userPosts {
   width: 100%;
   display: -webkit-box;

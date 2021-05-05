@@ -2,38 +2,6 @@
     width: 80%;
 }
 
-.newPost {
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: flex-start;
-    align-items: flex-start;
-}
-
-.newPost h2 {
-    color: #47525E;
-}
-
-.postInput {
-    padding: 10px;
-    width: 100%;
-    min-height: 80px;
-    background-color: #E6EEEA;
-    border: 0 solid;
-    resize: none;
-}
-
-.newPostBtn {
-    color: #FFFFFF;
-    font-size: 20px;
-    width: 130px;
-    margin: 10px;
-    padding: 5px;
-    text-align: left;
-    align-self: flex-end;
-    border:  0 solid;
-    cursor: pointer;
-}
-
 .userPosts {
     width: 100%;
     display: flex;

@@ -9,26 +9,18 @@ const initialState = {
         { name: 'Me', message: 'I am a normal pBLablabl I can have text and everything' },
         { name: 'Dmitry', message: 'I am a normal popover and I can have text and everything' },
         { name: 'Me', message: 'I am a normal popover and I can have text and everything' }
-    ],
-    messageInput: ''
+    ]
 };
 
-function _addMessage(state) {
-    const newMessage = { name: 'Me', message: state.messageInput }
+function addMessage(state, message) {
+    const newMessage = { name: 'Me', message }
     return {...state, messageInput: '', messages: [...state.messages, newMessage]};
-}
-
-function _updateMessageInput(state, text) {
-    return {...state, messageInput: text};
 }
 
 function chatReducer(state = initialState, action) {
     switch (action.type) {
         case actionTypes.ADD_MESSAGE:
-            return _addMessage(state);
-
-        case actionTypes.UPDATE_MESSAGE_INPUT:
-            return _updateMessageInput(state, action.text);
+            return addMessage(state, action.message);
 
         default:
             break;

@@ -1,5 +1,6 @@
 import React from "react";
 import Post from "../Post/Post";
+import PostsInputContainer from "../PostsInput/PostsInputContainer";
 import styles from './Posts.module.css';
 
 function Posts(props) {
@@ -9,15 +10,7 @@ function Posts(props) {
     
     return (
         <div className={styles.postsBlock}>
-            <div className={styles.newPost}>
-                <h2>My posts</h2>
-                <textarea className={styles.postInput}
-                          placeholder="your news..."
-                          value={props.postInput}
-                          onChange={props.inputPostText}
-                />
-                <button className={`btn ${styles.newPostBtn}`} onClick={props.createPost}>Send</button>
-            </div>
+            <PostsInputContainer />
 
             <div className={styles.userPosts}>
                 { postsList }

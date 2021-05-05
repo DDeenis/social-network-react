@@ -9,15 +9,20 @@
 .activeLink {
   text-decoration: none;
   color: blue;
-  transition: color 0.1s ease;
+  -webkit-transition: color .1s ease;
+  transition: color .1s ease;
 }
+
 .activeLink:hover {
   color: goldenrod;
-  transition: color 0.1s ease;
+  -webkit-transition: color .1s ease;
+  transition: color .1s ease;
 }
+
 .activeLink:active {
   color: gold;
-  transition: color 0.1s ease;
+  -webkit-transition: color .1s ease;
+  transition: color .1s ease;
 }
 
 .userLogo {
@@ -26,8 +31,12 @@
 }
 
 .userData {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-flow: row wrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
 }
-
 /*# sourceMappingURL=ProfileInfo.module.css.map */

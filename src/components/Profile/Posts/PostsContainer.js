@@ -1,21 +1,13 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { createPostCreator, inputPostTextCreator } from '../../../redux/actionCreators';
+import { useSelector } from 'react-redux';
 import Posts from '../Posts/Posts';
 
 function PostsContainer() {
-    const { posts, postInput } = useSelector(state => state.profile);
-    const dispatch = useDispatch();
-
-    const createPost = () => dispatch(createPostCreator());
-    const inputPostText = (e) => dispatch(inputPostTextCreator(e.target.value));
+    const { posts } = useSelector(state => state.profile);
 
     return (
         <Posts 
             posts={posts}
-            postInput={postInput}
-            createPost={createPost}
-            inputPostText={inputPostText}
         />
     );
 }
