@@ -2,18 +2,19 @@ import React from 'react';
 import { Redirect } from 'react-router';
 import styles from './AuthForm.module.css';
 import { Field } from "redux-form";
+import Input from '../../Common/Input/Input';
 
 function AuthForm(props) {
     return (
         <form className={styles.authFormWrapper} onSubmit={props.handleSubmit}>
             <div className={styles.authDataWrapper}>
                 <label htmlFor='email' className={styles.authDataLabel}>Email</label>
-                <Field component='input' type='text' id='email' placeholder='Email' className={styles.authData} name='email' />
+                <Field component={Input} type='text' id='email' placeholder='Email' className={styles.authData} name='email' validate={props.emailValidators} />
             </div>
 
             <div className={styles.authDataWrapper}>
                 <label htmlFor='password' className={styles.authDataLabel}>Password</label>
-                <Field component='input' type='password' id='password' placeholder='Password' className={styles.authData} name='password' />
+                <Field component={Input} type='password' id='password' placeholder='Password' className={styles.authData} name='password' validate={props.passwordValidators} />
             </div>
 
             <div className={styles.loginControls}>

@@ -1,0 +1,28 @@
+.errorBlock {
+    width: 100%;
+    position: relative;
+}
+
+.error textarea {
+    outline-color: red;
+    border: 1px solid red;
+}
+
+.error .errorMessage {
+    color: red;
+    font-size: 18px;
+}
+
+.error .countSymbols {
+    color: red;
+    bottom: 30px;
+}
+
+.countSymbols {
+    font-size: 12px;
+    color: gray;
+    position: absolute;
+    right: 1px;
+    bottom: 10px;
+    user-select: none; 
+}

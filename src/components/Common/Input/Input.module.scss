@@ -1,0 +1,18 @@
+.errorBlock {
+    width: 100%;
+    position: relative;
+}
+
+.error input {
+    outline-color: red;
+    border: 1px solid red;
+}
+
+.error .errorMessage {
+    color: red;
+    font-size: 18px;
+}
+
+.errorMessage {
+    margin: 15px;
+}

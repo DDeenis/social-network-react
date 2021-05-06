@@ -11,7 +11,7 @@ const initialState = {
 
 const addPost = (state, post) => {
     const newPost = { content: post, likes: 0, views: 0 };
-    return {...state, postInput: '', posts: [...state.posts, newPost]};
+    return {...state, posts: [...state.posts, newPost]};
 }
 
 const setWatchedProfile = (state, watchedProfile) => ({ ...state, watchedProfile });

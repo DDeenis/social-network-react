@@ -1,8 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import AvatarMock from '../../Dialogs/AvatarMock/AvatarMock';
-import Loader from '../../Loader/Loader';
-import LoaderCircle from '../../Loader/LoaderCircle';
+import Loader from '../../Common/Loader/Loader';
+import LoaderCircle from '../../Common/Loader/LoaderCircle';
 import styles from './UserFollowItem.module.css';
 
 function UserFollowItem({ user, followUser, unfollowUser, isFetching, isLoading }) {

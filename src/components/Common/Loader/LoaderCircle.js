@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './LoaderCircle.module.css';
+import styles from './LoaderCircle.module.scss';
 
 function LoaderCircle() {
     return (
