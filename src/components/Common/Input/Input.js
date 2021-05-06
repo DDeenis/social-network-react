@@ -7,9 +7,9 @@ function Input({ input, meta, ...other }) {
     return (
         <div className={hasError ? `${styles.error} ${styles.errorBlock}` : styles.errorBlock}>
             <input {...input} {...other} />
-            {/* {
+            {
                 hasError && <span className={styles.errorMessage}>{meta.error}</span>
-            } */}
+            }
         </div>
     );
 }

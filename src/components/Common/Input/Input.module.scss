@@ -1,5 +1,4 @@
 .errorBlock {
-    width: 100%;
     position: relative;
 }
 
@@ -14,5 +13,7 @@
 }
 
 .errorMessage {
-    margin: 15px;
+    right: -40%;
+    top: 25%;
+    position: absolute;
 }
