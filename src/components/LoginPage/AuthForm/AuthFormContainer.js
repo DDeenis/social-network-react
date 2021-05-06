@@ -4,17 +4,22 @@ import { useDispatch, useSelector } from 'react-redux';
 import { authUserThunkCreator } from '../../../redux/thunkCreators';
 import {reduxForm} from "redux-form";
 import { maxLengthValidatorCreator, minLengthValidatorCreator, requiredField } from '../../../utils/validators';
+import { useHistory } from 'react-router';
 
 
 function AuthFormContainer() {
     const { userId } = useSelector(state => state.login);
     const dispatch = useDispatch();
+    const history = useHistory();
     
     const loginUser = (email, password, remember = false) => {
         dispatch(authUserThunkCreator(email, password, remember));
     }
 
-    const handleSubmitLogin = (formData) => loginUser(formData.email, formData.password, formData.rememberMe);
+    const handleSubmitLogin = (formData) => {
+        loginUser(formData.email, formData.password, formData.rememberMe);
+        history.push(`/profile/${userId}`);
+    };
 
     const maxLength = 30;
     const minLength = 1;

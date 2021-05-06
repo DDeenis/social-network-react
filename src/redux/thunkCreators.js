@@ -54,6 +54,18 @@ export const authUserThunkCreator = (email, password, remember = false) => (disp
         .catch(r => console.log(r));
 }
 
+export const logoutUserThunkCreator = () => (dispatch) => {
+    userApi.logoutUser()
+        .then(r => {
+            if(r.resultCode === 0) {
+                dispatch(setUserIdCreator(0));
+                dispatch(setUserLoginCreator(''));
+                dispatch(setIsAuthCreator(false));
+            }
+        })
+        .catch(r => console.log(r));
+}
+
 export const getMeThunkCreator = () => (dispatch) => {
     userApi.getMe()
         .then(r => {

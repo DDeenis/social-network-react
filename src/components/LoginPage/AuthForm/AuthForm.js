@@ -1,5 +1,4 @@
 import React from 'react';
-import { Redirect } from 'react-router';
 import styles from './AuthForm.module.scss';
 import { Field } from "redux-form";
 import Input from '../../Common/Input/Input';
@@ -24,11 +23,6 @@ function AuthForm(props) {
                 </div>
 
                 <button className={`btn ${styles.loginBtn}`} type='submit'>Login</button>
-
-                {
-                    props.userId ?
-                    <Redirect to={`/profile/${props.userId}`} /> : <></>
-                }
             </div>
         </form>
     );

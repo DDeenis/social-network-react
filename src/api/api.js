@@ -27,7 +27,10 @@ const unfollowUser = (userId) =>
     axiosInstance.delete(`follow/${userId}`).then(r => r.data);
 
 const authUser = (email, password, remember = false) => 
-    axiosInstance.post(`auth/login?email=${email}&password=${password}&rememberMe=${remember}`).then(r => r.data);
+    axiosInstance.post(`auth/login`, { email, password, remember }).then(r => r.data);
+
+const logoutUser = () =>
+    axiosInstance.delete('auth/login').then(r => r.data);
 
 const getUserStatus = (userId) => 
     axiosInstance.get(`profile/status/${userId}`).then(r => r.data);
@@ -40,6 +43,7 @@ const userApi = {
     followUser,
     unfollowUser,
     authUser,
+    logoutUser,
     getMe,
     getProfileInfo,
     getUserStatus,

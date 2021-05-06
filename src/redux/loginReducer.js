@@ -4,7 +4,7 @@ const initialState = {
     userId: 0,
     login: '',
     // false
-    isAuth: true
+    isAuth: false
 };
 
 const setUserId = (state, userId) => ({ ...state, userId });

@@ -15,6 +15,18 @@ header {
     font-size: 20px;
 }
 
+.logoutBtn {
+    color: #FFFFFF;
+    font-size: 20px;
+    width: 130px;
+    margin: 10px;
+    padding: 5px;
+    text-align: left;
+    align-self: flex-end;
+    border:  0 solid;
+    cursor: pointer;
+}
+
 .headerLogo {
     width: 64px;
     height: 64px;
