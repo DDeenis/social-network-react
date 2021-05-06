@@ -1,7 +1,7 @@
 import React from "react";
 import ChatContainer from "./Chat/ChatContainer";
 import DialogContactsContainer from "./DialogContacts/DialogContactsContainer";
-import styles from './Dialogs.module.css';
+import styles from './Dialogs.module.scss';
 
 function Dialogs() {
     return (

@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './FriendOnline.module.css'
+import styles from './FriendOnline.module.scss'
 
 function FriendOnline(props) {
     return (

@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import styles from './DialogContact.module.css'
+import styles from './DialogContact.module.scss'
 
 function DialogContact({ contactName, active, id }) {
     return (

@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import styles from './PageItem.module.css';
+import styles from './PageItem.module.scss';
 
 function PageItem({ number, isCurrent, getUsers, setCurrentPage }) {
     const showUsersOnPage = () => {

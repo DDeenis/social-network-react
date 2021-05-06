@@ -1,6 +1,6 @@
 import React from 'react';
 import { Redirect } from 'react-router';
-import styles from './AuthForm.module.css';
+import styles from './AuthForm.module.scss';
 import { Field } from "redux-form";
 import Input from '../../Common/Input/Input';
 

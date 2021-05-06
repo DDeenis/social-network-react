@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import AvatarMock from '../../Dialogs/AvatarMock/AvatarMock';
 import Loader from '../../Common/Loader/Loader';
 import LoaderCircle from '../../Common/Loader/LoaderCircle';
-import styles from './UserFollowItem.module.css';
+import styles from './UserFollowItem.module.scss';
 
 function UserFollowItem({ user, followUser, unfollowUser, isFetching, isLoading }) {
     const changeFollowState = user.followed ? unfollowUser : followUser;

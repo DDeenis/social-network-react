@@ -1,6 +1,6 @@
 import React from 'react'
 import FriendOnline from '../FriendOnline/FriendOnline';
-import styles from './FriendsOnline.module.css'
+import styles from './FriendsOnline.module.scss'
 
 function FriendsOnline(props) {
     return (

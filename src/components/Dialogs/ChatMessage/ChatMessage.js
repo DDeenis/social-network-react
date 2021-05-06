@@ -1,7 +1,6 @@
 import React from 'react'
 import AvatarMock from '../AvatarMock/AvatarMock';
-import styles from './ChatMessage.module.css'
-// import Smile from '../../../assets/images/smile.png'
+import styles from './ChatMessage.module.scss'
 
 function ChatMessage({ userName, content }) {
     return (

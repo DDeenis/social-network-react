@@ -1,7 +1,7 @@
 import React from 'react';
 import { Field } from 'redux-form';
 import Textarea from '../../Common/Textarea/Textarea';
-import styles from './ChatInput.module.css';
+import styles from './ChatInput.module.scss';
 
 function ChatInput(props) {
     return (

@@ -1,7 +1,7 @@
 import React from "react";
 import Post from "../Post/Post";
 import PostsInputContainer from "../PostsInput/PostsInputContainer";
-import styles from './Posts.module.css';
+import styles from './Posts.module.scss';
 
 function Posts(props) {
     const postsList = props.posts.map(

@@ -1,6 +1,6 @@
 import React from 'react';
 import AuthFormContainer from './AuthForm/AuthFormContainer';
-import styles from './LoginPage.module.css';
+import styles from './LoginPage.module.scss';
 
 function LoginPage() {
     return (

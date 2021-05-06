@@ -1,7 +1,7 @@
 import React from 'react';
 import { Field } from 'redux-form';
 import Textarea from '../../Common/Textarea/Textarea';
-import styles from './PostsInput.module.css';
+import styles from './PostsInput.module.scss';
 
 function PostsInput(props) {
     return (

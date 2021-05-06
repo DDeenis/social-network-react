@@ -1,6 +1,6 @@
 import React from 'react';
 import UserFollowItem from '../UserFollowItem/UserFollowItem';
-import styles from './UserFollowList.module.css';
+import styles from './UserFollowList.module.scss';
 
 function UserFollowList({ users, followUser, unfollowUser, isFetching, followingInProgress }) {
     const usersFollowList = users.map(

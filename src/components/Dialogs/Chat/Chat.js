@@ -1,7 +1,7 @@
 import React from 'react'
 import ChatInputContainer from '../ChatInput/ChatInputContainer';
 import ChatMessage from '../ChatMessage/ChatMessage'
-import styles from './Chat.module.css'
+import styles from './Chat.module.scss'
 
 function Chat({ messages }) {
     const chatMessagesList = messages.map((m, i) => <ChatMessage userName={m.name} content={m.message} key={i} />);

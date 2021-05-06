@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './Header.module.css'
+import styles from './Header.module.scss'
 import BallLogo from '../../assets/images/ball.png'
 
 function Header({ isAuth, login }) {

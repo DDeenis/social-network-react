@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,OAAO,CAAC;EACJ,KAAK,EAAE,OAAO;EACd,SAAS,EAAE,IAAI;EACf,MAAM,EAAE,CAAC;CACZ;;AAED,AAAA,YAAY,CAAC;EACT,OAAO,EAAE,IAAI;EACb,SAAS,EAAE,QAAQ;EACnB,WAAW,EAAE,MAAM;EACnB,KAAK,EAAE,IAAI;CACd",
-    "sources": [
-        "ProfileStatus.module.scss"
-    ],
-    "names": [],
-    "file": "ProfileStatus.module.css"
-}

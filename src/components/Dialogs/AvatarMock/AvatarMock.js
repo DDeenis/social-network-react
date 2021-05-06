@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './AvatarMock.module.css';
+import styles from './AvatarMock.module.scss';
 
 function AvatarMock({ size = 70 }) {
     return (

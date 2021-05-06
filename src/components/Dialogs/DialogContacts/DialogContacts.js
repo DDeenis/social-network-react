@@ -1,6 +1,6 @@
 import React from 'react'
 import DialogContact from '../DialogContact/DialogContact'
-import styles from './DialogContacts.module.css'
+import styles from './DialogContacts.module.scss'
 
 function DialogContacts(props) {
     return (

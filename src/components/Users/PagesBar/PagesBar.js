@@ -1,6 +1,6 @@
 import React from 'react';
 import PageItem from '../PageItem/PageItem';
-import styles from './PagesBar.module.css';
+import styles from './PagesBar.module.scss';
 
 function PagesBar({ pages, currentPage, getUsers, setCurrentPage }) {
     return (

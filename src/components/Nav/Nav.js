@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
 import FriendsOnline from './FriendsOnline/FriendsOnline';
-import styles from './Nav.module.css'
+import styles from './Nav.module.scss'
 
 function Nav({ people, userId }) {
     return (

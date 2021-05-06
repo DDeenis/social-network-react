@@ -1,5 +1,5 @@
 import React from "react";
-import styles from './Post.module.css';
+import styles from './Post.module.scss';
 
 function Post({ text, likes, views }) {
     return (

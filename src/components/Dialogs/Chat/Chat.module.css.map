@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,KAAK,CAAC;EACF,MAAM,EAAE,IAAI;EACZ,OAAO,EAAE,IAAI;EACb,SAAS,EAAE,WAAW;CACzB;;AAED,AAAA,aAAa,CAAC;EACV,MAAM,EAAE,IAAI;CACf",
-    "sources": [
-        "Chat.module.scss"
-    ],
-    "names": [],
-    "file": "Chat.module.css"
-}
