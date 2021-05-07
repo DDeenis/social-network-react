@@ -1,6 +1,6 @@
-import React from 'react'
-import styles from './Header.module.scss'
-import BallLogo from '../../assets/images/ball.png'
+import React from 'react';
+import styles from './Header.module.scss';
+import BallLogo from '../../assets/images/ball.png';
 
 function Header({ isAuth, userLogin, logout, redirectToLogin }) {
     return (

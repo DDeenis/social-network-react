@@ -18,6 +18,7 @@ function AuthFormContainer() {
 
     const handleSubmitLogin = (formData) => {
         loginUser(formData.email, formData.password, formData.rememberMe);
+        
         history.push(`/profile/${userId}`);
     };
 

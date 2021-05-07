@@ -1,3 +1,4 @@
+import { stopSubmit } from "redux-form";
 import userApi from "../api/api";
 import { 
     followUserCreator, 
@@ -49,6 +50,8 @@ export const authUserThunkCreator = (email, password, remember = false) => (disp
             if(r.resultCode === 0) {
                 dispatch(setUserIdCreator(r.data.userId));
                 dispatch(setIsAuthCreator(true));
+            } else {
+                dispatch(stopSubmit('login', { _error: r.messages[0] }))
             }
         })
         .catch(r => console.log(r));

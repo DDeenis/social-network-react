@@ -3,7 +3,7 @@
     flex-flow: column wrap;
     justify-content: space-between;
     align-items: flex-start;
-    height: 25vh;
+    height: 30vh;
     margin: 100px;
 }
 
@@ -52,4 +52,10 @@
     width: 40%;
     cursor: pointer;
     margin: 15px 0;
+}
+
+.globalErrors span {
+    color: red;
+    font-family: 'Roboto';
+    font-size: 16px;
 }

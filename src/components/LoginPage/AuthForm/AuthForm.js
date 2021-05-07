@@ -16,6 +16,10 @@ function AuthForm(props) {
                 <Field component={Input} type='password' id='password' placeholder='Password' className={styles.authData} name='password' validate={props.passwordValidators} />
             </div>
 
+            <div className={styles.globalErrors}>
+                <span>{props.error}</span>
+            </div>
+
             <div className={styles.loginControls}>
                 <div className={styles.rememberMe}>
                     <label htmlFor='remember-me' className={styles.rememberMeText}>Remember me</label>
