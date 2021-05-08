@@ -5,6 +5,7 @@ import {
     setFetchingStatusCreator, 
     setFollowingInProgressCreator, 
     setIsAuthCreator,
+    setIsLoadingCreator,
     setTotalUsersCountCreator,
     setUserIdCreator, 
     setUserLoginCreator, 
@@ -45,19 +46,25 @@ export const unfollowUserThunkCreator = (userId) => (dispatch) => {
 }
 
 export const authUserThunkCreator = (email, password, remember = false) => (dispatch) => {
+    dispatch(setIsLoadingCreator(true));
+
     userApi.authUser(email, password, remember)
         .then(r => {
             if(r.resultCode === 0) {
                 dispatch(setUserIdCreator(r.data.userId));
                 dispatch(setIsAuthCreator(true));
             } else {
-                dispatch(stopSubmit('login', { _error: r.messages[0] }))
+                dispatch(stopSubmit('login', { _error: r.messages[0] }));
             }
+
+            dispatch(setIsLoadingCreator(false));
         })
         .catch(r => console.log(r));
 }
 
 export const logoutUserThunkCreator = () => (dispatch) => {
+    dispatch(setIsLoadingCreator(true));
+
     userApi.logoutUser()
         .then(r => {
             if(r.resultCode === 0) {
@@ -65,11 +72,15 @@ export const logoutUserThunkCreator = () => (dispatch) => {
                 dispatch(setUserLoginCreator(''));
                 dispatch(setIsAuthCreator(false));
             }
+
+            dispatch(setIsLoadingCreator(false));
         })
         .catch(r => console.log(r));
 }
 
 export const getMeThunkCreator = () => (dispatch) => {
+    dispatch(setIsLoadingCreator(true));
+
     userApi.getMe()
         .then(r => {
             if(r.resultCode === 0) {
@@ -77,6 +88,8 @@ export const getMeThunkCreator = () => (dispatch) => {
                 dispatch(setUserLoginCreator(r.data.login));
                 dispatch(setIsAuthCreator(true));
             }
+
+            dispatch(setIsLoadingCreator(false));
         })
         .catch(r => console.log(r));
 }

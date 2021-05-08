@@ -12,7 +12,8 @@ export const actionTypes = Object.freeze({
     SET_WATCHED_PROFILE: 'SET_WATCHED_PROFILE',
     SET_IS_AUTH: 'SET_IS_AUTH',
     SET_USER_LOGIN: 'SET_USER_LOGIN',
-    SET_USER_STATUS: 'SET_USER_STATUS'
+    SET_USER_STATUS: 'SET_USER_STATUS',
+    SET_IS_LOADING: 'SET_IS_LOADING'
 });
 
 export const createPostCreator = (post) => ({ type: actionTypes.ADD_POST, post });
@@ -42,3 +43,5 @@ export const setIsAuthCreator = (isAuth) => ({ type: actionTypes.SET_IS_AUTH, is
 export const setUserLoginCreator = (login) => ({ type: actionTypes.SET_USER_LOGIN, login });
 
 export const setUserStatusCreator = (status) => ({ type: actionTypes.SET_USER_STATUS, userStatus: status });
+
+export const setIsLoadingCreator = (isLoading) => ({ type: actionTypes.SET_IS_LOADING, isLoading });

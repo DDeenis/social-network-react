@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
-import { getMeThunkCreator, logoutUserThunkCreator } from '../../redux/thunkCreators';
+import { logoutUserThunkCreator } from '../../redux/thunkCreators';
 import Header from './Header';
 
 function HeaderContainer() {
@@ -11,10 +11,6 @@ function HeaderContainer() {
 
     const logout = () => dispatch(logoutUserThunkCreator());
     const redirectToLogin = () => history.push('/login');
-
-    useEffect(() => {
-        dispatch(getMeThunkCreator());
-    }, [isAuth]);
 
     return (
         <Header

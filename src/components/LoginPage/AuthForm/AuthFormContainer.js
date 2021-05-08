@@ -8,7 +8,8 @@ import { useHistory } from 'react-router';
 
 
 function AuthFormContainer() {
-    const { userId } = useSelector(state => state.login);
+    const { userId, isAuth } = useSelector(state => state.login);
+    const { isLoading } = useSelector(state => state.app);
     const dispatch = useDispatch();
     const history = useHistory();
     
@@ -18,8 +19,6 @@ function AuthFormContainer() {
 
     const handleSubmitLogin = (formData) => {
         loginUser(formData.email, formData.password, formData.rememberMe);
-        
-        history.push(`/profile/${userId}`);
     };
 
     const maxLength = 30;
@@ -31,6 +30,8 @@ function AuthFormContainer() {
     const ReduxAuthForm = reduxForm({
         form: 'login'
     })(AuthForm);
+
+    if(isAuth && !isLoading) history.push(`/profile/${userId}`);
 
     return (
         <ReduxAuthForm
