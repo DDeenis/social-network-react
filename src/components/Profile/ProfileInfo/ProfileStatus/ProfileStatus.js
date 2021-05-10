@@ -12,12 +12,12 @@ function ProfileStatus({ statusText, isEditing, setStatus, setIsEditing, updateS
     return (
         <div className={styles.statusBlock}>
             {
-                !isEditing ?
-                <p className={styles.status} onDoubleClick={() => setIsEditing(true)}>Status: { statusText || 'not specified' }</p> :
-                <>
+                !isEditing 
+                ? <p className={styles.status} onDoubleClick={() => setIsEditing(true)}>Status: { statusText || 'not specified' }</p> 
+                : <>
                     <p className={styles.status}>State: </p>
                     <input className={styles.status} value={statusText} autoFocus disabled={!isEditable} onChange={(e) => setStatus(e.target.value)} onBlur={() => onBlur()} />
-                </>
+                  </>
             }
         </div>
     );
