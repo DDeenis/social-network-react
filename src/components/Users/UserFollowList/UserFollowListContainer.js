@@ -1,10 +1,11 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { usersSelector } from '../../../redux/selectors';
 import { followUserThunkCreator, unfollowUserThunkCreator } from '../../../redux/thunkCreators';
 import UserFollowList from "./UserFollowList";
 
 function UserFollowListContainer() {
-    const { people, isFetching, followingInProgress } = useSelector(state => state.users);
+    const { people, isFetching, followingInProgress } = useSelector(usersSelector);
     const dispatch = useDispatch();
 
     const followUser = (userId) => {

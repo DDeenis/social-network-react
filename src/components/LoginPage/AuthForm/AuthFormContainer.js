@@ -5,11 +5,13 @@ import { authUserThunkCreator } from '../../../redux/thunkCreators';
 import {reduxForm} from "redux-form";
 import { maxLengthValidatorCreator, minLengthValidatorCreator, requiredField } from '../../../utils/validators';
 import { useHistory } from 'react-router';
+import { isAuthSelector, isLoadingSelector, userIdSelector } from '../../../redux/selectors';
 
 
 function AuthFormContainer() {
-    const { userId, isAuth } = useSelector(state => state.login);
-    const { isLoading } = useSelector(state => state.app);
+    const userId = useSelector(userIdSelector);
+    const isAuth = useSelector(isAuthSelector);
+    const isLoading = useSelector(isLoadingSelector);
     const dispatch = useDispatch();
     const history = useHistory();
     

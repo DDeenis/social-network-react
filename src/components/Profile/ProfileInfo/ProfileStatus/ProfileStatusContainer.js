@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router';
+import { userIdSelector, userStatusSelector } from '../../../../redux/selectors';
 import { getUserStatusThunkCreator, updateUserStatusThunkCreator } from '../../../../redux/thunkCreators';
 import ProfileStatus from './ProfileStatus';
 
 function ProfileStatusContainer() {
-    const { userStatus } = useSelector(state => state.profile);
-    const { userId: myId } = useSelector(state => state.login);
+    const userStatus = useSelector(userStatusSelector);
+    const myId = useSelector(userIdSelector);
     const dispath = useDispatch();
 
     const { id } = useParams();

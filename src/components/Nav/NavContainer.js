@@ -1,10 +1,11 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { peopleOnlineSelector, userIdSelector } from '../../redux/selectors';
 import Nav from './Nav';
 
 function NavContainer() {
-    const { userId } = useSelector(state => state.login);
-    const { people } = useSelector(state => state.sidebar);
+    const userId = useSelector(userIdSelector);
+    const people = useSelector(peopleOnlineSelector);
 
     return (
         <Nav
