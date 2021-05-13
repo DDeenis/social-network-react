@@ -14,7 +14,7 @@ const initialState = {
 
 function addMessage(state, message) {
     const newMessage = { name: 'Me', message }
-    return {...state, messageInput: '', messages: [...state.messages, newMessage]};
+    return {...state, messages: [...state.messages, newMessage]};
 }
 
 function chatReducer(state = initialState, action) {

@@ -8,13 +8,8 @@ function UserFollowListContainer() {
     const { people, isFetching, followingInProgress } = useSelector(usersSelector);
     const dispatch = useDispatch();
 
-    const followUser = (userId) => {
-        dispatch(followUserThunkCreator(userId));
-    };
-
-    const unfollowUser = (userId) => {
-        dispatch(unfollowUserThunkCreator(userId));
-    };
+    const followUser = (userId) => dispatch(followUserThunkCreator(userId));
+    const unfollowUser = (userId) => dispatch(unfollowUserThunkCreator(userId));
 
     return (
         <UserFollowList

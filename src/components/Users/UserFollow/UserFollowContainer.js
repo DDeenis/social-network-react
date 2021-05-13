@@ -10,10 +10,7 @@ function UserFollowContainer() {
     const isAuth = useSelector(isAuthSelector);
     const dispatch = useDispatch();
 
-    const getUsers = (page = currentPage) => {
-        dispatch(setUsersThunkCreator(page, pageSize))
-    };
-
+    const getUsers = (page = currentPage) => dispatch(setUsersThunkCreator(page, pageSize));
     const setCurrentPage = (currentPage) => dispatch(setCurrentPageCreator(currentPage));
     
     const onLoad = () => {

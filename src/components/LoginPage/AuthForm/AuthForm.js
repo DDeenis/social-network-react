@@ -5,7 +5,7 @@ import Input from '../../Common/Input/Input';
 
 function AuthForm(props) {
     return (
-        <form className={styles.authFormWrapper} onSubmit={props.handleSubmit}>
+        <form className={styles.authFormWrapper}>
             <div className={styles.authDataWrapper}>
                 <label htmlFor='email' className={styles.authDataLabel}>Email</label>
                 <Field component={Input} type='text' id='email' placeholder='Email' className={styles.authData} name='email' validate={props.emailValidators} />
