@@ -22,7 +22,7 @@ const changeFollowState = (state, userId, followed) => {
 const setFollowingInProgress = (state, id, isFollowingInProgress) => 
     isFollowingInProgress ? 
     ({ ...state, followingInProgress: [...state.followingInProgress, id] }) : 
-    ({ ...state, followingInProgress: state.followingInProgress.map(p => p.id != id) });
+    ({ ...state, followingInProgress: state.followingInProgress.filter(p => p !== id) });
 const setTotalUsersCount = (state, totalUsersCount) => ({ ...state, totalUsersCount });
 const setCurrentPage = (state, currentPage) => ({ ...state, currentPage });
 const setFetchingStatus = (state, isFetching) => ({ ...state, isFetching });
