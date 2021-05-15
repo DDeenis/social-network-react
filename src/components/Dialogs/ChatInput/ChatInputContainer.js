@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { reduxForm } from 'redux-form';
-import { createMessageCreator } from '../../../redux/actionCreators';
+import { createMessageCreator } from '../../../redux/chatReducer';
 import { maxLengthValidatorCreator, minLengthValidatorCreator, requiredField } from '../../../utils/validators';
 import ChatInput from './ChatInput';
 

@@ -1,5 +1,4 @@
-import { setIsAuthCreator, setUserIdCreator, setUserLoginCreator } from "../redux/actionCreators";
-import loginReducer from "../redux/loginReducer";
+import loginReducer, { setIsAuthCreator, setUserIdCreator, setUserLoginCreator } from "../redux/loginReducer";
 
 /* eslint-disable no-undef */
 const state = {

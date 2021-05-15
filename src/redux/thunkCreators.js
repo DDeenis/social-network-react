@@ -1,19 +1,9 @@
 import { stopSubmit } from "redux-form";
 import userApi from "../api/api";
-import {
-    followUserCreator,
-    setFetchingStatusCreator,
-    setFollowingInProgressCreator,
-    setIsAuthCreator,
-    setIsLoadingCreator,
-    setTotalUsersCountCreator,
-    setUserIdCreator,
-    setUserLoginCreator,
-    setUsersCreator,
-    setUserStatusCreator,
-    setWatchedProfileCreator,
-    unfollowUserCreator
-} from "./actionCreators";
+import { setIsLoadingCreator } from "./appReducer";
+import { setIsAuthCreator, setUserIdCreator, setUserLoginCreator } from "./loginReducer";
+import { setUserStatusCreator, setWatchedProfileCreator } from "./profileReducer";
+import { followUserCreator, setFetchingStatusCreator, setFollowingInProgressCreator, setTotalUsersCountCreator, setUsersCreator, unfollowUserCreator } from "./usersReducer";
 
 export const setUsersThunkCreator = (page, pageSize) => async (dispatch) => {
     dispatch(setFetchingStatusCreator(true));

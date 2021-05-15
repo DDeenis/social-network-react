@@ -1,5 +1,4 @@
-import { createMessageCreator } from "../redux/actionCreators";
-import chatReducer from "../redux/chatReducer";
+import chatReducer, { createMessageCreator } from "../redux/chatReducer";
 
 /* eslint-disable no-undef */
 const state = {

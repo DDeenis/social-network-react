@@ -1,4 +1,4 @@
-import { actionTypes } from "./actionCreators";
+const ADD_MESSAGE = 'ADD_MESSAGE';
 
 const initialState = {
     people: [
@@ -19,7 +19,7 @@ function addMessage(state, message) {
 
 function chatReducer(state = initialState, action) {
     switch (action.type) {
-        case actionTypes.ADD_MESSAGE:
+        case ADD_MESSAGE:
             return addMessage(state, action.message);
 
         default:
@@ -30,3 +30,6 @@ function chatReducer(state = initialState, action) {
 }
 
 export default chatReducer;
+
+// action creators
+export const createMessageCreator = (message) => ({ type: ADD_MESSAGE, message });

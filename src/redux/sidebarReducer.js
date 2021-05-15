@@ -1,5 +1,3 @@
-// import { actionTypes } from "./actionCreators";
-
 const initialState = {
     people: [
         'Andrew', 'Sasha', 'Sveta'

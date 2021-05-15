@@ -17,5 +17,4 @@ export default function appReducer(state = initialState, action) {
 }
 
 // action creators
-
-
+export const setIsLoadingCreator = (isLoading) => ({ type: SET_IS_LOADING, isLoading });

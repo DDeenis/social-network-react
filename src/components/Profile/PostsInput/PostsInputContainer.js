@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { reduxForm } from 'redux-form';
-import { createPostCreator } from '../../../redux/actionCreators';
+import { createPostCreator } from '../../../redux/profileReducer';
 import { maxLengthValidatorCreator, minLengthValidatorCreator, requiredField } from '../../../utils/validators';
 import PostsInput from './PostsInput';
 

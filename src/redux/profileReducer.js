@@ -1,4 +1,6 @@
-import { actionTypes } from './actionCreators';
+const ADD_POST = 'ADD_POST';
+const SET_WATCHED_PROFILE = 'SET_WATCHED_PROFILE';
+const SET_USER_STATUS = 'SET_USER_STATUS';
 
 const initialState = {
     posts: [
@@ -20,13 +22,13 @@ const setUserStatus = (state, userStatus) => ({ ...state, userStatus });
 
 function profileReducer(state = initialState, action) {
     switch (action.type) {
-        case actionTypes.ADD_POST:
+        case ADD_POST:
             return addPost(state, action.post);
 
-        case actionTypes.SET_WATCHED_PROFILE:
+        case SET_WATCHED_PROFILE:
             return setWatchedProfile(state, action.watchedProfile);
         
-        case actionTypes.SET_USER_STATUS:
+        case SET_USER_STATUS:
             return setUserStatus(state, action.userStatus);
 
         default:
@@ -37,3 +39,8 @@ function profileReducer(state = initialState, action) {
 }
 
 export default profileReducer;
+
+// action creators
+export const createPostCreator = (post) => ({ type: ADD_POST, post });
+export const setWatchedProfileCreator = (watchedProfile) => ({ type: SET_WATCHED_PROFILE, watchedProfile });
+export const setUserStatusCreator = (status) => ({ type: SET_USER_STATUS, userStatus: status });

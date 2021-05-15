@@ -1,8 +1,8 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setCurrentPageCreator } from '../../../redux/actionCreators';
 import { isAuthSelector, usersSelector } from '../../../redux/selectors';
 import { setUsersThunkCreator } from '../../../redux/thunkCreators';
+import { setCurrentPageCreator } from '../../../redux/usersReducer';
 import UserFollow from './UserFollow';
 
 function UserFollowContainer() {
