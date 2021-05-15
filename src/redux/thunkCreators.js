@@ -1,113 +1,112 @@
 import { stopSubmit } from "redux-form";
 import userApi from "../api/api";
-import { 
-    followUserCreator, 
-    setFetchingStatusCreator, 
-    setFollowingInProgressCreator, 
+import {
+    followUserCreator,
+    setFetchingStatusCreator,
+    setFollowingInProgressCreator,
     setIsAuthCreator,
     setIsLoadingCreator,
     setTotalUsersCountCreator,
-    setUserIdCreator, 
-    setUserLoginCreator, 
-    setUsersCreator, 
-    setUserStatusCreator, 
-    setWatchedProfileCreator, 
-    unfollowUserCreator 
+    setUserIdCreator,
+    setUserLoginCreator,
+    setUsersCreator,
+    setUserStatusCreator,
+    setWatchedProfileCreator,
+    unfollowUserCreator
 } from "./actionCreators";
 
-export const setUsersThunkCreator = (page, pageSize) => (dispatch) => {
+export const setUsersThunkCreator = (page, pageSize) => async (dispatch) => {
     dispatch(setFetchingStatusCreator(true));
 
-    userApi.getUsers(page, pageSize)
-        .then(r => dispatch(setUsersCreator(r.items)))
-        .then(r => dispatch(setTotalUsersCountCreator(r.totalCount)))
-        .then(() => dispatch(setFetchingStatusCreator(false)))
-        .catch(r => console.log(r));
+    const response = await userApi.getUsers(page, pageSize);
+
+    dispatch(setUsersCreator(response.items));
+    dispatch(setTotalUsersCountCreator(response.totalCount));
+
+    dispatch(setFetchingStatusCreator(false));
 }
 
-export const followUserThunkCreator = (userId) => (dispatch) => {
+export const followUserThunkCreator = (userId) => async (dispatch) => {
     dispatch(setFollowingInProgressCreator(userId, true));
 
-    userApi.followUser(userId).then(r => {
-        if (r.resultCode === 0) dispatch(followUserCreator(userId))
-    })
-        .then(() => dispatch(setFollowingInProgressCreator(userId, false)))
-        .catch(r => console.log(r));
+    const response = await userApi.followUser(userId);
+
+    if (response.resultCode === 0) {
+        dispatch(followUserCreator(userId));
+    }
+
+    dispatch(setFollowingInProgressCreator(userId, false));
 }
 
-export const unfollowUserThunkCreator = (userId) => (dispatch) => {
+export const unfollowUserThunkCreator = (userId) => async (dispatch) => {
     dispatch(setFollowingInProgressCreator(userId, true));
 
-    userApi.unfollowUser(userId).then(r => {
-        if (r.resultCode === 0) dispatch(unfollowUserCreator(userId));
-    })
-        .then(() => dispatch(setFollowingInProgressCreator(userId, false)))
-        .catch(r => console.log(r));
+    const response = await userApi.unfollowUser(userId);
+
+    if (response.resultCode === 0) {
+        dispatch(unfollowUserCreator(userId));
+    }
+
+    dispatch(setFollowingInProgressCreator(userId, false));
 }
 
-export const authUserThunkCreator = (email, password, remember = false) => (dispatch) => {
+export const authUserThunkCreator = (email, password, remember = false) => async (dispatch) => {
     dispatch(setIsLoadingCreator(true));
 
-    userApi.authUser(email, password, remember)
-        .then(r => {
-            if(r.resultCode === 0) {
-                dispatch(setUserIdCreator(r.data.userId));
-                dispatch(setIsAuthCreator(true));
-            } else {
-                dispatch(stopSubmit('login', { _error: r.messages[0] }));
-            }
+    const response = await userApi.authUser(email, password, remember);
 
-            dispatch(setIsLoadingCreator(false));
-        })
-        .catch(r => console.log(r));
+    if (response.resultCode === 0) {
+        dispatch(setUserIdCreator(response.data.userId));
+        dispatch(setIsAuthCreator(true));
+    } else {
+        dispatch(stopSubmit('login', { _error: response.messages[0] }));
+    }
+    
+    dispatch(setIsLoadingCreator(false));
 }
 
-export const logoutUserThunkCreator = () => (dispatch) => {
+export const logoutUserThunkCreator = () => async (dispatch) => {
     dispatch(setIsLoadingCreator(true));
 
-    userApi.logoutUser()
-        .then(r => {
-            if(r.resultCode === 0) {
-                dispatch(setUserIdCreator(0));
-                dispatch(setUserLoginCreator(''));
-                dispatch(setIsAuthCreator(false));
-            }
+    const response = await userApi.logoutUser();
+    
+    if (response.resultCode === 0) {
+        dispatch(setUserIdCreator(0));
+        dispatch(setUserLoginCreator(''));
+        dispatch(setIsAuthCreator(false));
+    }
 
-            dispatch(setIsLoadingCreator(false));
-        })
-        .catch(r => console.log(r));
+    dispatch(setIsLoadingCreator(false));
 }
 
-export const getMeThunkCreator = () => (dispatch) => {
+export const getMeThunkCreator = () => async (dispatch) => {
     dispatch(setIsLoadingCreator(true));
 
-    userApi.getMe()
-        .then(r => {
-            if(r.resultCode === 0) {
-                dispatch(setUserIdCreator(r.data.id));
-                dispatch(setUserLoginCreator(r.data.login));
-                dispatch(setIsAuthCreator(true));
-            }
+    const response = await userApi.getMe();
+     
+    if (response.resultCode === 0) {
+        dispatch(setUserIdCreator(response.data.id));
+        dispatch(setUserLoginCreator(response.data.login));
+        dispatch(setIsAuthCreator(true));
+    }
 
-            dispatch(setIsLoadingCreator(false));
-        })
-        .catch(r => console.log(r));
+    dispatch(setIsLoadingCreator(false));
 }
 
-export const setWatchedProfileThunkCreator = (id) => (dispatch) => {
-    userApi.getProfileInfo(id)
-        .then(r => dispatch(setWatchedProfileCreator(r)))
-        .catch(r => console.log(r));
+export const setWatchedProfileThunkCreator = (id) => async (dispatch) => {
+    const response = await userApi.getProfileInfo(id);
+    
+    dispatch(setWatchedProfileCreator(response));
 }
 
-export const getUserStatusThunkCreator = (userId) => (dispatch) => {
-    userApi.getUserStatus(userId)
-        .then(r => dispatch(setUserStatusCreator(r)))
-        .catch(r => console.log(r));
+export const getUserStatusThunkCreator = (userId) => async (dispatch) => {
+    const response = await userApi.getUserStatus(userId);
+    
+    dispatch(setUserStatusCreator(response));
 }
 
-export const updateUserStatusThunkCreator = (statusText) => (dispatch) => {
-    userApi.updateUserStatus(statusText)
-        .then(() => dispatch(setUserStatusCreator(statusText)))
-        .catch(r => console.log(r));
+export const updateUserStatusThunkCreator = (statusText) => async (dispatch) => {
+    await userApi.updateUserStatus(statusText);
+    
+    dispatch(setUserStatusCreator(statusText));
 }
