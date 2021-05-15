@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import PageItem from '../PageItem/PageItem';
 import styles from './PagesBar.module.scss';
 

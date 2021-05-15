@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import DialogContact from '../DialogContact/DialogContact'
 import styles from './DialogContacts.module.scss'
 

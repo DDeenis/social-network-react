@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import styles from './ProfileStatus.module.scss';
 
 function ProfileStatus({ statusText, isEditing, setStatus, setIsEditing, updateStatus, isEditable }) {

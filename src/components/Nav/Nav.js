@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import { NavLink } from 'react-router-dom';
 import FriendsOnline from './FriendsOnline/FriendsOnline';
 import styles from './Nav.module.scss'

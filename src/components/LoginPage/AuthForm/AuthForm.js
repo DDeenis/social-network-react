@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import styles from './AuthForm.module.scss';
 import { Field } from "redux-form";
 import Input from '../../Common/Input/Input';

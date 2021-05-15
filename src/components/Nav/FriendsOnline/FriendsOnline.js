@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import FriendOnline from '../FriendOnline/FriendOnline';
 import styles from './FriendsOnline.module.scss'
 

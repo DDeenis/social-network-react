@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import styles from './ProfileInfo.module.scss';
 import AvatarMock from '../../Dialogs/AvatarMock/AvatarMock';
 import ProfileStatusContainer from './ProfileStatus/ProfileStatusContainer';

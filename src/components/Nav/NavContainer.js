@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { useSelector } from 'react-redux';
 import { peopleOnlineSelector, userIdSelector } from '../../redux/selectors';
 import Nav from './Nav';

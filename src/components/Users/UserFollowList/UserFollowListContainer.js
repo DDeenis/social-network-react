@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { usersSelector } from '../../../redux/selectors';
 import { followUserThunkCreator, unfollowUserThunkCreator } from '../../../redux/thunkCreators';

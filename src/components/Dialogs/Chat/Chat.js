@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import ChatInputContainer from '../ChatInput/ChatInputContainer';
 import ChatMessage from '../ChatMessage/ChatMessage'
 import styles from './Chat.module.scss'

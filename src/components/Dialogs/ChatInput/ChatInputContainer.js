@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { useDispatch } from 'react-redux';
 import { reduxForm } from 'redux-form';
 import { createMessageCreator } from '../../../redux/chatReducer';

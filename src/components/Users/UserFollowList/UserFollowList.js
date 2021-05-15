@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import UserFollowItem from '../UserFollowItem/UserFollowItem';
 import styles from './UserFollowList.module.scss';
 

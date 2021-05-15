@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import styles from './AvatarMock.module.scss';
 
 function AvatarMock({ size = 70 }) {
