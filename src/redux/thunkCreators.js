@@ -44,6 +44,7 @@ export const authUserThunkCreator = (email, password, remember = false) => async
     dispatch(setIsLoadingCreator(true));
 
     const response = await userApi.authUser(email, password, remember);
+    console.log(response);
 
     if (response.resultCode === 0) {
         dispatch(setUserIdCreator(response.data.userId));

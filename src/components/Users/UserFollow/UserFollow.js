@@ -17,7 +17,7 @@ function UserFollow({ onLoad, getUsers, setCurrentPage, currentPage, pages }) {
             </section>
 
             <PagesBar pages={pages} currentPage={currentPage} getUsers={getUsers} setCurrentPage={setCurrentPage} />
-            <button className={`btn ${styles.showMoreBtn}`} onClick={() => getUsers()}>Show more</button>
+            <button className={`btn ${styles.showMoreBtn}`} onClick={() => getUsers(currentPage)}>Show more</button>
         </div>
     );
 }

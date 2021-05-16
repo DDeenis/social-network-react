@@ -11,32 +11,32 @@ const axiosInstance = axios.create({
     }
 })
 
-const getUsers = (page = 1, pageSize = 3) => 
-    axiosInstance.get(`users?page=${page}&count=${pageSize}`).then(r => r.data);
+const getUsers = async (page = 1, pageSize = 3) => 
+    (await axiosInstance.get(`users?page=${page}&count=${pageSize}`)).data;
 
-const getMe = () => 
-    axiosInstance.get('auth/me').then(r => r.data);
+const getMe = async () => 
+    (await axiosInstance.get('auth/me')).data;
 
-const getProfileInfo = (id) =>
-    axiosInstance.get(`profile/${id}`).then(r => r.data);
+const getProfileInfo = async (id) =>
+    (await axiosInstance.get(`profile/${id}`)).data;
 
-const followUser = (userId) => 
-    axiosInstance.post(`follow/${userId}`).then(r => r.data);
+const followUser = async (userId) => 
+    (await axiosInstance.post(`follow/${userId}`)).data;
 
-const unfollowUser = (userId) => 
-    axiosInstance.delete(`follow/${userId}`).then(r => r.data);
+const unfollowUser = async (userId) => 
+    (await axiosInstance.delete(`follow/${userId}`)).data;
 
-const authUser = (email, password, remember = false) => 
-    axiosInstance.post(`auth/login`, { email, password, remember }).then(r => r.data);
+const authUser = async (email, password, remember = false) => 
+    (await axiosInstance.post(`auth/login`, { email, password, remember })).data;
 
-const logoutUser = () =>
-    axiosInstance.delete('auth/login').then(r => r.data);
+const logoutUser = async () =>
+    (await axiosInstance.delete('auth/login')).data;
 
-const getUserStatus = (userId) => 
-    axiosInstance.get(`profile/status/${userId}`).then(r => r.data);
+const getUserStatus = async (userId) => 
+    (await axiosInstance.get(`profile/status/${userId}`)).data;
 
-const updateUserStatus = (statusText) =>
-    axiosInstance.put('profile/status', { status: statusText }).then(r => r.data);
+const updateUserStatus = async (statusText) =>
+    (await axiosInstance.put('profile/status', { status: statusText })).data;
 
 const userApi = {
     getUsers,
