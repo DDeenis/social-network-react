@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import AuthForm from './AuthForm';
 import { useDispatch, useSelector } from 'react-redux';
 import { authUserThunkCreator } from '../../../redux/thunkCreators';

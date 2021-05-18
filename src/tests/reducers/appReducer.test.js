@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import appReducer, { setIsLoadingCreator } from "../redux/appReducer";
+import appReducer, { setIsLoadingCreator } from "../../redux/appReducer";
 
 const state = {
     isLoading: false

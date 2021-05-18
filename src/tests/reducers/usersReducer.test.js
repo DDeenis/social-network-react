@@ -1,4 +1,10 @@
-import usersReducer, { setCurrentPageCreator, setFetchingStatusCreator, setFollowingInProgressCreator, setTotalUsersCountCreator, setUsersCreator } from "../redux/usersReducer";
+import usersReducer, { 
+    setCurrentPageCreator, 
+    setFetchingStatusCreator,
+    setFollowingInProgressCreator, 
+    setTotalUsersCountCreator, 
+    setUsersCreator 
+} from "../../redux/usersReducer";
 
 /* eslint-disable no-undef */
 const state = {

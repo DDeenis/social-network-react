@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import profileReducer, { createPostCreator, setUserStatusCreator, setWatchedProfileCreator } from '../redux/profileReducer';
+import profileReducer, { createPostCreator, setUserStatusCreator, setWatchedProfileCreator } from '../../redux/profileReducer';
 
 const state = {
     posts: [
