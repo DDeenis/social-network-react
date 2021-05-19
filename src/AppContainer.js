@@ -1,17 +1,18 @@
-import React, { useEffect } from 'react';
+import React, { Suspense, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import App from './App';
 import LoaderCircle from './components/Common/Loader/LoaderCircle';
+import { isLoadingSelector } from './redux/selectors';
 import { getMeThunkCreator } from './redux/thunkCreators';
 
 function AppContainer() {
-    const { isAuth } = useSelector(state => state.login);
-    const { isLoading } = useSelector(state => state.app); 
+    // const { isAuth } = useSelector(state => state.login);
+    const isLoading = useSelector(isLoadingSelector); 
     const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(getMeThunkCreator());
-    }, [isAuth]);
+    }, []);
 
     return (
         <>
@@ -21,7 +22,9 @@ function AppContainer() {
                 <LoaderCircle />
                 <span>Загрузка...</span>
               </div>
-            : <App />
+            : <Suspense fallback={<LoaderCircle />}>
+                <App />
+              </Suspense>
         }
         </>
     );

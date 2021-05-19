@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { isAuthSelector, usersSelector } from '../../../redux/selectors';
 import { setUsersThunkCreator } from '../../../redux/thunkCreators';
 import { setCurrentPageCreator } from '../../../redux/usersReducer';
+import { createPages } from '../../../utils/pagination';
 import UserFollow from './UserFollow';
 
 function UserFollowContainer() {
@@ -21,15 +22,7 @@ function UserFollowContainer() {
 
     const totalPages = Math.ceil(totalUsersCount / pageSize);
     const pageItemsCount = 22;
-    const halfPage = Math.ceil(pageItemsCount / 2);
-    const possibleEndIndex = halfPage + currentPage;
-    const startIndex = currentPage - halfPage > 0 ? currentPage - halfPage : Math.ceil(currentPage / 2);
-    const endIndex = possibleEndIndex >= pageItemsCount ? possibleEndIndex : possibleEndIndex + (pageItemsCount - possibleEndIndex);
-    const pages = [];
-
-    for (let i = startIndex; i <= endIndex; i++) {
-        pages.push(i);
-    }
+    const pages = createPages(totalPages, currentPage, pageItemsCount);
 
     return (
         <UserFollow
