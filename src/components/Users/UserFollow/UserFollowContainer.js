@@ -1,13 +1,14 @@
 import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { isAuthSelector, usersSelector } from '../../../redux/selectors';
+import { isAuthSelector, peopleSelector, usersSelector } from '../../../redux/selectors';
 import { setUsersThunkCreator } from '../../../redux/thunkCreators';
 import { setCurrentPageCreator } from '../../../redux/usersReducer';
 import { createPages } from '../../../utils/pagination';
 import UserFollow from './UserFollow';
 
 function UserFollowContainer() {
-    const { people, pageSize, totalUsersCount, currentPage } = useSelector(usersSelector);
+    const { pageSize, totalUsersCount, currentPage } = useSelector(usersSelector);
+    const people = useSelector(peopleSelector);
     const isAuth = useSelector(isAuthSelector);
     const dispatch = useDispatch();
 
