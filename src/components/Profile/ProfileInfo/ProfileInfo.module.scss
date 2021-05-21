@@ -31,3 +31,27 @@
     display: flex;
     flex-flow: row wrap;
 }
+
+.avatarContainer {
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.inputWrapper {
+    position: relative;
+    margin: 10px;
+}
+
+.uploadAvatar {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+}
+
+.uploadLabel {
+    padding: 8px;
+    background-color: #30475e;
+    color: #fff;
+    border-radius: 12px;
+    cursor: pointer;
+}

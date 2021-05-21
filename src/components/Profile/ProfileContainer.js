@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import Profile from './Profile';
 import { useHistory, useParams } from 'react-router';
 import Loader from '../Common/Loader/Loader';
-import { setWatchedProfileThunkCreator } from '../../redux/thunkCreators';
+import { setWatchedProfileThunkCreator, uploadAvatarThunkCreator } from '../../redux/thunkCreators';
 import { useDispatch, useSelector } from 'react-redux';
 import { userIdSelector, watchedProfileSelector } from '../../redux/selectors';
 
@@ -17,6 +17,16 @@ function ProfileContainer() {
         dispatch(setWatchedProfileThunkCreator(id));
     }, []);
 
+    const uploadImage = (e) => {
+        e.preventDefault();
+
+        if(e.target.files.length > 0) {
+            const formData = new FormData()
+            formData.append('avatar', e.target.files[0]);
+            dispatch(uploadAvatarThunkCreator(formData));
+        }
+    };
+
     if(userId === 0) history.push('/login');
 
     return (
@@ -25,6 +35,8 @@ function ProfileContainer() {
             watchedProfile !== null ?
             <Profile
                 user={watchedProfile}
+                userId={userId}
+                uploadImage={uploadImage}
             /> :
             <Loader />
         }

@@ -101,3 +101,7 @@ export const updateUserStatusThunkCreator = (statusText) => async (dispatch) => 
     
     dispatch(setUserStatusCreator(statusText));
 }
+
+export const uploadAvatarThunkCreator = (formData) => async () => {
+    await userApi.uploadAvatar(formData);
+}

@@ -14,8 +14,8 @@ export const loginSelector = createSelector(state => state.login.login, login =>
 // users
 export const usersSelector = createSelector(state => state.users, users => users);
 export const peopleSelector = createSelector(usersSelector, users => users.people);
-export const followedUsersSelector = createSelector(peopleSelector, users => users.filter(u => u.followed));
-export const unfollowedUsersSelector = createSelector(peopleSelector, users => users.filter(u => !u.followed));
+export const followedUsersSelector = createSelector(peopleSelector, people => people.filter(u => u.followed));
+export const unfollowedUsersSelector = createSelector(peopleSelector, people => people.filter(u => !u.followed));
 
 // sidebar
 export const peopleOnlineSelector = createSelector(state => state.sidebar.people, people => people);
