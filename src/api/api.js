@@ -41,6 +41,9 @@ const updateUserStatus = async (statusText) =>
 const uploadAvatar = async (formData) => 
     (await axiosInstance.put('profile/photo', formData)).data;
 
+const updateProfile = async (profileInfo) => 
+    (await axiosInstance.put('profile', profileInfo)).data;
+
 const userApi = {
     getUsers,
     followUser,
@@ -51,7 +54,8 @@ const userApi = {
     getProfileInfo,
     getUserStatus,
     updateUserStatus,
-    uploadAvatar
+    uploadAvatar,
+    updateProfile
 };
 
 export default userApi;

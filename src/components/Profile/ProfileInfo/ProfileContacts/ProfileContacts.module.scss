@@ -1,0 +1,17 @@
+.profileContacts {
+    height: 100%;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.profileContacts > div {
+    margin: 10px;
+}
+
+.profileEntry {
+    color: #47525E;
+    font-size: 20px;
+    line-height: 13px;
+}

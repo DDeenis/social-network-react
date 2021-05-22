@@ -105,3 +105,8 @@ export const updateUserStatusThunkCreator = (statusText) => async (dispatch) => 
 export const uploadAvatarThunkCreator = (formData) => async () => {
     await userApi.uploadAvatar(formData);
 }
+
+export const updateProfileThunkCreator = (profileInfo) => async () => {
+    const response = await userApi.updateProfile(profileInfo);
+    console.log(response);
+}
