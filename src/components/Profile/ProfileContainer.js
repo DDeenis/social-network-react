@@ -12,7 +12,7 @@ function ProfileContainer() {
     const dispatch = useDispatch();
     const { id } = useParams();
     const history = useHistory();
-
+console.log(watchedProfile);
     useEffect(() => {
         dispatch(setWatchedProfileThunkCreator(id));
     }, [id]);

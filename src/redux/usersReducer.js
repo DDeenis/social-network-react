@@ -29,9 +29,6 @@ const setFollowingInProgress = (state, id, isFollowingInProgress) =>
     isFollowingInProgress ? 
     ({ ...state, followingInProgress: [...state.followingInProgress, id] }) : 
     ({ ...state, followingInProgress: state.followingInProgress.filter(p => p !== id) });
-const setTotalUsersCount = (state, totalUsersCount) => ({ ...state, totalUsersCount });
-const setCurrentPage = (state, currentPage) => ({ ...state, currentPage });
-const setFetchingStatus = (state, isFetching) => ({ ...state, isFetching });
 const setUsers = (state, users) => ({ ...state, people: [...users] });
 
 function usersReducer(state = initialState, action) {
@@ -46,13 +43,9 @@ function usersReducer(state = initialState, action) {
             return setUsers(state, action.users);
         
         case SET_TOTAL_USERS_COUNT:
-            return setTotalUsersCount(state, action.totalUsersCount);
-
         case SET_CURRENT_PAGE:
-            return setCurrentPage(state, action.currentPage);
-
         case SET_FETCHING_STATUS:
-            return setFetchingStatus(state, action.isFetching);
+            return { ...state, ...action.payload };
         
         case SET_IS_FOLLOWING_IN_PROGRESS:
             return setFollowingInProgress(state, action.id, action.isFollowingInProgress);
@@ -68,7 +61,7 @@ export default usersReducer;
 export const followUserCreator = (userId) => ({ type: FOLLOW_USER, id: userId });
 export const unfollowUserCreator = (userId) => ({ type: UNFOLLOW_USER, id: userId });
 export const setUsersCreator = (users) => ({ type: SET_USERS, users });
-export const setCurrentPageCreator = (currentPage) => ({ type: SET_CURRENT_PAGE, currentPage });
-export const setTotalUsersCountCreator = (totalUsersCount) => ({ type: SET_TOTAL_USERS_COUNT, totalUsersCount });
-export const setFetchingStatusCreator = (isFetching) => ({ type: SET_FETCHING_STATUS, isFetching });
+export const setCurrentPageCreator = (currentPage) => ({ type: SET_CURRENT_PAGE, payload: { currentPage } });
+export const setTotalUsersCountCreator = (totalUsersCount) => ({ type: SET_TOTAL_USERS_COUNT, payload: { totalUsersCount } });
+export const setFetchingStatusCreator = (isFetching) => ({ type: SET_FETCHING_STATUS, payload: { isFetching } });
 export const setFollowingInProgressCreator = (id, isFollowingInProgress) => ({ type: SET_IS_FOLLOWING_IN_PROGRESS, id, isFollowingInProgress });

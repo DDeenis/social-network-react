@@ -16,20 +16,14 @@ const addPost = (state, post) => {
     return {...state, posts: [...state.posts, newPost]};
 }
 
-const setWatchedProfile = (state, watchedProfile) => ({ ...state, watchedProfile });
-
-const setUserStatus = (state, userStatus) => ({ ...state, userStatus });
-
 function profileReducer(state = initialState, action) {
     switch (action.type) {
         case ADD_POST:
             return addPost(state, action.post);
 
         case SET_WATCHED_PROFILE:
-            return setWatchedProfile(state, action.watchedProfile);
-        
         case SET_USER_STATUS:
-            return setUserStatus(state, action.userStatus);
+            return { ...state, ...action.payload };
 
         default:
             break;
@@ -42,5 +36,5 @@ export default profileReducer;
 
 // action creators
 export const createPostCreator = (post) => ({ type: ADD_POST, post });
-export const setWatchedProfileCreator = (watchedProfile) => ({ type: SET_WATCHED_PROFILE, watchedProfile });
-export const setUserStatusCreator = (status) => ({ type: SET_USER_STATUS, userStatus: status });
+export const setWatchedProfileCreator = (watchedProfile) => ({ type: SET_WATCHED_PROFILE, payload: { watchedProfile } });
+export const setUserStatusCreator = (status) => ({ type: SET_USER_STATUS, payload: { userStatus: status } });

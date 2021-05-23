@@ -10,8 +10,8 @@ function ProfileContactsForm(props) {
             {
                 formFields
             }
-            <ProfileFieldEntry title={'lookingForAJobDescription'} content={props.user?.lookingForAJobDescription} className={styles.profileEntry} component='textarea' />
-            <ProfileFieldEntry title={'aboutMe'} content={props.user?.aboutMe} className={styles.profileEntry} component='textarea' />
+            <ProfileFieldEntry title={'lookingForAJobDescription'} content={props.user?.lookingForAJobDescription} inputClassName={styles.textareaInput} component='textarea' />
+            <ProfileFieldEntry title={'aboutMe'} content={props.user?.aboutMe} inputClassName={styles.textareaInput} component='textarea' />
             <button type='submit'>Submit</button>
         </form>
     );
