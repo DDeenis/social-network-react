@@ -1,14 +1,15 @@
 import * as React from 'react';
 import { Field } from 'redux-form';
+import { requiredField } from '../../../../utils/validators';
 
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-function ProfileFieldEntry({ title, content, className }) {
+function ProfileFieldEntry({ title, content, className, component = 'input' }) {
     return (
         <div className={className}>
-            <b>{capitalizeFirstLetter(title)}</b>: <Field name={title} component={'input'} defaultValue={content ?? 'not specified'}  />
+            <b>{capitalizeFirstLetter(title)}</b>: <Field name={title} component={component} type='text' defaultValue={content ?? 'not specified'} validate={[requiredField]} />
         </div>
     );
 }

@@ -2,6 +2,7 @@ import * as React from 'react';
 import styles from './AuthForm.module.scss';
 import { Field } from "redux-form";
 import Input from '../../Common/Input/Input';
+import { requiredField } from '../../../utils/validators';
 
 function AuthForm(props) {
     return (
@@ -25,6 +26,14 @@ function AuthForm(props) {
                     <label htmlFor='remember-me' className={styles.rememberMeText}>Remember me</label>
                     <Field component='input' type='checkbox' id='remember-me' className={styles.rememberMeCheckbox} name='rememberMe' />
                 </div>
+
+                {
+                    props.captchaUrl &&
+                    <label htmlFor='captcha' className={styles.captchaField}>
+                        <Field component='input' type='text' id='captcha' name='captcha' validate={[requiredField]} />
+                        <img src={props.captchaUrl} alt='captcha' />
+                    </label>
+                }
 
                 <button className={`btn ${styles.loginBtn}`} type='submit'>Login</button>
             </div>

@@ -15,7 +15,7 @@ function ProfileContainer() {
 
     useEffect(() => {
         dispatch(setWatchedProfileThunkCreator(id));
-    }, []);
+    }, [id]);
 
     const uploadImage = (e) => {
         e.preventDefault();

@@ -26,8 +26,8 @@ const followUser = async (userId) =>
 const unfollowUser = async (userId) => 
     (await axiosInstance.delete(`follow/${userId}`)).data;
 
-const authUser = async (email, password, remember = false) => 
-    (await axiosInstance.post(`auth/login`, { email, password, remember })).data;
+const authUser = async (email, password, remember, captcha) => 
+    (await axiosInstance.post(`auth/login`, { email, password, remember, captcha })).data;
 
 const logoutUser = async () =>
     (await axiosInstance.delete('auth/login')).data;
@@ -44,6 +44,9 @@ const uploadAvatar = async (formData) =>
 const updateProfile = async (profileInfo) => 
     (await axiosInstance.put('profile', profileInfo)).data;
 
+const getCaptcha = async () =>
+    (await axiosInstance.get('security/get-captcha-url')).data;
+
 const userApi = {
     getUsers,
     followUser,
@@ -55,7 +58,8 @@ const userApi = {
     getUserStatus,
     updateUserStatus,
     uploadAvatar,
-    updateProfile
+    updateProfile,
+    getCaptcha
 };
 
 export default userApi;

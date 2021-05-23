@@ -1,7 +1,7 @@
 import { stopSubmit } from "redux-form";
 import userApi from "../api/api";
 import { setIsLoadingCreator } from "./appReducer";
-import { setIsAuthCreator, setUserIdCreator, setUserLoginCreator } from "./loginReducer";
+import { setCaptchaUrlCreator, setIsAuthCreator, setUserIdCreator, setUserLoginCreator } from "./loginReducer";
 import { setUserStatusCreator, setWatchedProfileCreator } from "./profileReducer";
 import { followUserCreator, setFetchingStatusCreator, setFollowingInProgressCreator, setTotalUsersCountCreator, setUsersCreator, unfollowUserCreator } from "./usersReducer";
 
@@ -40,15 +40,16 @@ export const unfollowUserThunkCreator = (userId) => async (dispatch) => {
     dispatch(setFollowingInProgressCreator(userId, false));
 }
 
-export const authUserThunkCreator = (email, password, remember = false) => async (dispatch) => {
+export const authUserThunkCreator = (email, password, remember, captcha) => async (dispatch) => {
     dispatch(setIsLoadingCreator(true));
 
-    const response = await userApi.authUser(email, password, remember);
-    console.log(response);
+    const response = await userApi.authUser(email, password, remember, captcha);
 
     if (response.resultCode === 0) {
         dispatch(setUserIdCreator(response.data.userId));
         dispatch(setIsAuthCreator(true));
+    } else if(response.resultCode === 10) {
+        dispatch(getCaptchaThunkCreator());
     } else {
         dispatch(stopSubmit('login', { _error: response.messages[0] }));
     }
@@ -102,11 +103,16 @@ export const updateUserStatusThunkCreator = (statusText) => async (dispatch) => 
     dispatch(setUserStatusCreator(statusText));
 }
 
+export const getCaptchaThunkCreator = () => async (dispatch) => {
+    const response = await userApi.getCaptcha();
+
+    dispatch(setCaptchaUrlCreator(response.url));
+}
+
 export const uploadAvatarThunkCreator = (formData) => async () => {
     await userApi.uploadAvatar(formData);
 }
 
 export const updateProfileThunkCreator = (profileInfo) => async () => {
-    const response = await userApi.updateProfile(profileInfo);
-    console.log(response);
+    await userApi.updateProfile(profileInfo);
 }

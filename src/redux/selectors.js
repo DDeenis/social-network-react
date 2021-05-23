@@ -10,6 +10,7 @@ export const postsSelector = createSelector(state => state.profile.posts, posts 
 export const userIdSelector = createSelector(state => state.login.userId, userId => userId);
 export const isAuthSelector = createSelector(state => state.login.isAuth, isAuth => isAuth);
 export const loginSelector = createSelector(state => state.login.login, login => login);
+export const captchaUrlSelector = (state) => state.login.captchaUrl;
 
 // users
 export const usersSelector = createSelector(state => state.users, users => users);

@@ -70,7 +70,7 @@ function ProfileInfo({ user, userId, uploadImage }) {
             <div onClick={() => setEditMode(true)}>
                 {
                     editMode && isOwner
-                    ? <ProfileContactsFormWrapped user={user} onSubmit={updateProfile} setEditMode={setEditMode} />
+                    ? <ProfileContactsFormWrapped user={user} initialValues={{ ...user, ...user.contacts}} onSubmit={updateProfile} setEditMode={setEditMode} />
                     : <ProfileContacts user={user} />
                 }
             </div>

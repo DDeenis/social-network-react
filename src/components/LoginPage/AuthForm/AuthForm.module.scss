@@ -3,7 +3,7 @@
     flex-flow: column wrap;
     justify-content: space-between;
     align-items: flex-start;
-    height: 30vh;
+    height: 40vh;
     margin: 100px;
 }
 
@@ -58,4 +58,19 @@
     color: red;
     font-family: 'Roboto';
     font-size: 16px;
+}
+
+.captchaField {
+    display: flex;
+    flex-direction: column-reverse;
+    height: 120px;
+    width: 260px;
+    margin: 10px 0;
+}
+
+.captchaField > * {
+    flex-shrink: 0;
+    flex: 0;
+    flex-grow: 0;
+    flex-basis: 0;
 }
