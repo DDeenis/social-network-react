@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import React, { useEffect } from 'react';
 import PagesBar from '../PagesBar/PagesBar';
 import UserFollowListContainer from '../UserFollowList/UserFollowListContainer';
@@ -17,7 +18,7 @@ function UserFollow({ onLoad, getUsers, setCurrentPage, currentPage, pages }) {
             </section>
 
             <PagesBar pages={pages} currentPage={currentPage} getUsers={getUsers} setCurrentPage={setCurrentPage} />
-            <button className={`btn ${styles.showMoreBtn}`} onClick={() => getUsers(currentPage)}>Show more</button>
+            <button className={classNames('btn', styles.showMoreBtn)} onClick={() => getUsers(currentPage)}>Show more</button>
         </div>
     );
 }

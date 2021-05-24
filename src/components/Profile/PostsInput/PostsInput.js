@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import * as React from 'react';
 import { Field } from 'redux-form';
 import Textarea from '../../Common/Textarea/Textarea';
@@ -15,7 +16,7 @@ function PostsInput(props) {
                 name='post'
                 validate={props.validators}
             />
-            <button className={`btn ${styles.newPostBtn}`} type='submit'>Send</button>
+            <button className={classNames('btn', styles.newPostBtn)} type='submit'>Send</button>
         </form>
     );
 }

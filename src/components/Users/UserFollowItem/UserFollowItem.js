@@ -4,6 +4,7 @@ import AvatarMock from '../../Dialogs/AvatarMock/AvatarMock';
 import Loader from '../../Common/Loader/Loader';
 import LoaderCircle from '../../Common/Loader/LoaderCircle';
 import styles from './UserFollowItem.module.scss';
+import classNames from 'classnames';
 
 function UserFollowItem({ user, followUser, unfollowUser, isFetching, isLoading }) {
     const changeFollowState = user.followed ? unfollowUser : followUser;
@@ -19,7 +20,9 @@ function UserFollowItem({ user, followUser, unfollowUser, isFetching, isLoading 
                         userPhoto
                 }
                 </NavLink>
-                <button className={`btn ${styles.followBtn}`} onClick={() => changeFollowState(user.id)} disabled={isLoading}>{user.followed ? 'Unfollow' : 'Follow'}</button>
+                <button className={classNames('btn', styles.followBtn)} onClick={() => changeFollowState(user.id)} disabled={isLoading}>
+                    {user.followed ? 'Unfollow' : 'Follow'}
+                </button>
             </div>
 
             <div className={styles.userMessage}>

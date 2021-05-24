@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import * as React from 'react';
 import { Field } from 'redux-form';
 import Textarea from '../../Common/Textarea/Textarea';
@@ -14,7 +15,7 @@ function ChatInput(props) {
                 name='message'
                 validate={props.validators}
             />
-            <button className={`btn ${styles.newMessageBtn}`} type='submit'>Send</button>
+            <button className={classNames('btn', styles.newMessageBtn)} type='submit'>Send</button>
         </form>
     );
 }

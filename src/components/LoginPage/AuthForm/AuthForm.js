@@ -3,6 +3,7 @@ import styles from './AuthForm.module.scss';
 import { Field } from "redux-form";
 import Input from '../../Common/Input/Input';
 import { requiredField } from '../../../utils/validators';
+import classNames from 'classnames';
 
 function AuthForm(props) {
     return (
@@ -35,7 +36,7 @@ function AuthForm(props) {
                     </label>
                 }
 
-                <button className={`btn ${styles.loginBtn}`} type='submit'>Login</button>
+                <button className={classNames('btn', styles.loginBtn)} type='submit'>Login</button>
             </div>
         </form>
     );
