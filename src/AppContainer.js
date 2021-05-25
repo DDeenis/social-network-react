@@ -4,6 +4,7 @@ import App from './App';
 import LoaderCircle from './components/Common/Loader/LoaderCircle';
 import { isLoadingSelector, userIdSelector } from './redux/selectors';
 import { getMeThunkCreator } from './redux/thunkCreators';
+import { setPromiseErrorCreator } from './redux/appReducer';
 
 function AppContainer() {
     const userId = useSelector(userIdSelector);
@@ -13,6 +14,16 @@ function AppContainer() {
     useEffect(() => {
         dispatch(getMeThunkCreator());
     }, [userId]);
+
+    const handleRejection = (rejectionEvent) => {
+        dispatch(setPromiseErrorCreator(rejectionEvent))
+    }
+
+    useEffect(() => {
+        window.addEventListener('unhandledrejection', handleRejection);
+
+        return window.removeEventListener('unhandledrejection', handleRejection);
+    }, []);
 
     return (
         <>

@@ -38,6 +38,10 @@ function App() {
             <Route path='/'>
               <Redirect to='/dialogs' />
             </Route>
+
+            <Route path='*'>
+              <div>404 - page not found</div>
+            </Route>
           </Switch>
         </div>
       </main>

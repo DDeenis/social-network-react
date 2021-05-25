@@ -1,15 +1,16 @@
 const SET_IS_LOADING = 'SET_IS_LOADING';
+const SET_PROMISE_ERROR = 'SET_PROMISE_ERROR';
 
 const initialState = {
-    isLoading: false
+    isLoading: false,
+    error: null
 }
-
-const setIsLoading = (state, isLoading) => ({ ...state, isLoading });
 
 export default function appReducer(state = initialState, action) {
     switch (action.type) {
+        case SET_PROMISE_ERROR:
         case SET_IS_LOADING:
-            return setIsLoading(state, action.isLoading);
+            return { ...state, ...state.payload };
 
         default:
             return state;
@@ -17,4 +18,5 @@ export default function appReducer(state = initialState, action) {
 }
 
 // action creators
-export const setIsLoadingCreator = (isLoading) => ({ type: SET_IS_LOADING, isLoading });
+export const setIsLoadingCreator = (isLoading) => ({ type: SET_IS_LOADING, payload: { isLoading } });
+export const setPromiseErrorCreator = (error) => ({ type: SET_PROMISE_ERROR, payload: { error } });
